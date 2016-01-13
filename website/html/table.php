@@ -1,11 +1,8 @@
 <?php
 $qstr = getenv ( 'QUERY_STRING' );
 parse_str ( $qstr );
-if (!isset($season))
-{
-	$season = 15;
-}
-$dbname = sprintf('db/%d-%02d.db', $season + 1999, $season);
+include 'db.php';
+$dbname = getdbname($season);
 $sql = <<< END
 with 
 

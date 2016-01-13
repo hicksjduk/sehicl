@@ -1,11 +1,8 @@
 <?php
 $qstr = getenv ( 'QUERY_STRING' );
 parse_str ( $qstr );
-if (!isset($season))
-{
-	$season = 15;
-}
-$dbname = sprintf('db/%d-%02d.db', $season + 1999, $season);
+include 'db.php';
+$dbname = getdbname($season);
 $sql = <<< END
 with
 params as (select :tsel as team_select, 6 as max_wickets, :maxm as max_matches),
