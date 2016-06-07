@@ -1,0 +1,13 @@
+<pages default="home">
+	<page id="home" htmlSource="pages/home.html"/>
+	<page id="about" htmlSource="pages/aboutus.html"/>
+	<page id="constitution" htmlSource="pages/constitution.html"/>
+	<page id="contacts" htmlSource="pages/contacts.html"/>
+	<page id="diary" xmlSource="pages/diary.xml" stylesheet="diary.xsl"/>
+	<page id="resources" htmlSource="pages/resources.html"/>
+	<page id="links" htmlSource="pages/links.html"/>
+	<page id="hantsstats" htmlSource="pages/hantsstats.html"/>
+	<page id="agm" htmlSource="pages/agm2012.html"/>
+	<page id="documents" htmlSource="pages/documents.html"/>
+	<page id="agm2013" htmlSource="pages/agm2013.html"/>
+</pages>

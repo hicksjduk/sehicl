@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigator>
+	<item title="Home" pageID="home"/>
+	<item title="About us" pageID="about"/>
+	<item title="Contacts" pageID="contacts"/>
+	<item title="Diary" pageID="diary"/>
+	<!-- item title="Resources" pageID="resources"/-->
+	<item title="Documents" pageID="documents"/>
+	<item title="AGM 2013" pageID="agm2013"/>
+	<item title="Links" pageID="links"/>
+</navigator>
