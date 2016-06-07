@@ -7,6 +7,10 @@ from pages.mailto import Mailto
 from pages.page import Page
 from pages.pageLink import PageLink, HtmlLink
 import string
+import glob
+import re
+from datetime import date, datetime
+from pages.settings import Settings
 
 class HomePage(Page):
     
@@ -32,38 +36,35 @@ class HomePage(Page):
         Worshipful the Mayor of Fareham, presents the senior teams' awards,
         and the evening culminates with an eight-a-side challenge match
         between the Mayor of Fareham's VIII and the Division 1 champions'
-        VIII. {presentation.atag}The 2013 presentation
-            evening</a> was on Sunday 24th March; click the link for details of the
-        evening. In 2014, the presentation evening will be on Sunday 6th April.
-    </p>
+        VIII.
+        <!-- 
+        The 2016 presentation evening will be on Sunday 20th March.
+        -->
+        {presentation.atag}The 2016 presentation
+            evening</a> was on Sunday 20th March; click the link for details of the
+        evening.
+        </p>
     <p>
         Please report any broken links, mis-spelled names or other errors to {webmaster.html}.
     </p>
     """
 
+    def is_expired(self, filename):
+        answer = False
+        bits = filename.rsplit('.', 1)
+        lastbit = bits[-1 if len(bits) == 1 else -2]
+        regex = r'.*?(\d{8})$'
+        mo = re.match(regex, lastbit)
+        if mo is not None:
+            answer = datetime.strptime(mo.group(1), '%Y%m%d').date() < date.today()
+        return answer
+
     def getNewsItems(self):    
         answer = []
-        answer.append("""
-            All players are reminded of <a href="{rules.url}#sectionN">the rules on clothing</a>,
-            and in particular that <b>shoes must be predominantly white in colour</b>.
-        """.format(rules=PageLink("rules", self)))
-        answer.append("""
-            <b>The new version of the website</b> is now live. If you encounter an error,
-            please contact {webmaster.html} giving the URL of the page on which the error
-            occurred.
-            <br>The "Members' area" link is no longer present. Full contact details
-            for committee and club contacts are still available, but are accessed by clicking
-            the "Contacts" link in the navigation bar to the left, and then clicking "Full details".
-            This page remains password-protected: if you require access you must register and then login.
-            Note that if you applied for a login to the members' area last season, that login will
-            no longer work, and you must re-register.
-            """.format(webmaster=Mailto("website", "the Webmaster")))
-        answer.append("""
-            <b>The League needs to recruit some more umpires.</b> If you would be
-            willing to umpire your help would be greatly appreciated. Please
-            speak to any umpire on match nights, or contact the umpires'
-            co-ordinator, {umpires.html}.
-            """.format(umpires=Mailto("umpires", "Andy Anthony")))
+        for f in sorted(glob.glob(Settings.newsDirectory + "/*")):
+            if not self.is_expired(f):
+                with open(f) as fl:
+                    answer.append(''.join(fl).strip())
         return answer
 
     def getTitle(self):
@@ -80,8 +81,8 @@ class HomePage(Page):
         answer = self.xml.format(news=theNews, webmaster=theWebmaster, presentation=thePresentation, hcb=theHcb, flc=theFlc, map=theMap)
         return answer
     
-    def getNews(self, news=None):
-        theNews = news if news != None else self.getNewsItems()
+    def getNews(self):
+        theNews = self.getNewsItems()
         answer = ""
         if theNews:
             nString = string.join(["<p>{0}</p>".format(n) for n in theNews], "\n")

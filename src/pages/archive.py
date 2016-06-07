@@ -17,10 +17,10 @@ class ArchiveUtils():
 
 class ArchiveIndex(Page):
     
-    def __init__(self, pageId, params={}):
+    def __init__(self, pageId, maxSeason, params={}):
         Page.__init__(self, pageId, params)
         self.minSeason = 4
-        self.maxSeason = 13
+        self.maxSeason = maxSeason
         
     def getTitle(self):
         answer = "SEHICL Archive"

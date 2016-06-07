@@ -28,6 +28,7 @@ class LeagueTableInReport:
         self.lastCompleteMatchDate = None
         self.lastScheduledMatchDate = None
         self.toCome = 0
+        self.complete = False
         self.notes = []
         
 class PointsDeduction:
@@ -57,18 +58,24 @@ class TableRow:
         self.champions = False
         self.promoted = False
         self.relegated = False
+        self.remainingOpponents = []
         self.maintainInvariants()
         
     def maintainInvariants(self):
         self.played = self.won + self.tied + self.lost
         self.runrate = -1 if self.balls == 0 else self.runs * 6.0 / self.balls
-        self.points = 12 * self.won + 6 * self.tied + self.batpoints + self.bowlpoints
+        points = 12 * self.won + 6 * self.tied + self.batpoints + self.bowlpoints
         for d in self.deductions:
-            self.points = self.points - d.points
+            points = points - d.points
+        self.points = points
         self.sortKey = "{0}{1:.15f}{2}".format(999-self.points, 98-self.runrate, self.teamName)
 
 class LeagueTableReportGenerator:
     
+    def __init__(self, awardedBatPts=3, awardedBowlPts=6):
+        self.awardedBatPts = awardedBatPts
+        self.awardedBowlPts = awardedBowlPts
+        
     def getReport(self, rootElement, leagueId):
         answer = LeagueTableReport()
         for l in rootElement.findall("league"):
@@ -99,6 +106,7 @@ class LeagueTableReportGenerator:
                 incompleteMatchesByDate[date] = incompleteMatchesByDate.get(date, 0) + 1
         answer.lastCompleteMatchDate = lastCompleteMatchDate
         answer.lastScheduledMatchDate = lastScheduledMatchDate
+        answer.complete = len(incompleteMatchesByDate) == 0
         if lastCompleteMatchDate is not None:
             toCome = 0
             for d in sorted(incompleteMatchesByDate.keys()):
@@ -138,6 +146,9 @@ class LeagueTableReportGenerator:
                 answer = True
                 for tableRow in self.getTableRowsForMatch(matchElement, tableRows):
                     self.updateTableRowFromAwardedMatch(tableRow, awardedMatchElement)
+            else:
+                for tableRow in self.getTableRowsForMatch(matchElement, tableRows):
+                    self.updateTableRowFromUnplayedMatch(tableRow, matchElement)
         return answer
     
     def getTableRowsForMatch(self, matchElement, tableRows):
@@ -201,14 +212,22 @@ class LeagueTableReportGenerator:
     def updateTableRowFromAwardedMatch(self, tableRow, awardedMatchElement):
         if awardedMatchElement.find("winner").get("id") == tableRow.teamId:
             tableRow.won = tableRow.won + 1
-            tableRow.batpoints = tableRow.batpoints + 3
-            tableRow.bowlpoints = tableRow.bowlpoints + 6
+            tableRow.batpoints = tableRow.batpoints + self.awardedBatPts
+            tableRow.bowlpoints = tableRow.bowlpoints + self.awardedBowlPts
         else:
             tableRow.lost = tableRow.lost + 1
         tableRow.maintainInvariants()
         
+    def updateTableRowFromUnplayedMatch(self, tableRow, matchElement):
+        homeTeam = matchElement.find("homeTeam").get("id")
+        awayTeam = matchElement.find("awayTeam").get("id")
+        if tableRow.teamId == homeTeam:
+            tableRow.remainingOpponents.append(awayTeam)
+        elif tableRow.teamId == awayTeam: 
+            tableRow.remainingOpponents.append(homeTeam)
+        
     def markPromotedRelegatedChampions(self, leagueTable):
-        if leagueTable.lastCompleteMatchDate is not None and leagueTable.lastScheduledMatchDate == leagueTable.lastCompleteMatchDate:
+        if leagueTable.complete:
             maxPromotedPos = leagueTable.promoted
             minRelegatedPos = len(leagueTable.tableRows) - leagueTable.relegated + 1
             pos = 0

@@ -1890,10 +1890,10 @@ class Test(unittest.TestCase):
         leagueElement = ElementTree.fromstring(xml)
         result = LeagueTableReportGenerator().getLeagueTable(leagueElement)
         expectedResults = {}
-        expectedResults["t1"] = [2, 0]
-        expectedResults["t2"] = [1, 2]
-        expectedResults["t3"] = [0, 2]
-        expectedResults["t4"] = [1, 0]
+        expectedResults["t1"] = [2, 0, ["t4"]]
+        expectedResults["t2"] = [1, 2, []]
+        expectedResults["t3"] = [0, 2, ["t4"]]
+        expectedResults["t4"] = [1, 0, ["t1", "t3"]]
         self.assertEquals("The League", result.leagueName)
         self.assertEquals(2, result.promoted)
         self.assertEquals(3, result.relegated)
@@ -1905,6 +1905,7 @@ class Test(unittest.TestCase):
             tableRow = result.tableRows[k]
             self.assertEquals(expectedResults[k][0], tableRow.won)
             self.assertEquals(expectedResults[k][1], tableRow.lost)
+            self.assertEquals(sorted(expectedResults[k][2]), sorted(tableRow.remainingOpponents))
             
     def testGetLeagueTableNotAllGamesCompleteNoneToCome(self):
         xml = """
@@ -1971,10 +1972,10 @@ class Test(unittest.TestCase):
         leagueElement = ElementTree.fromstring(xml)
         result = LeagueTableReportGenerator().getLeagueTable(leagueElement)
         expectedResults = {}
-        expectedResults["t1"] = [2, 0]
-        expectedResults["t2"] = [1, 2]
-        expectedResults["t3"] = [0, 2]
-        expectedResults["t4"] = [1, 0]
+        expectedResults["t1"] = [2, 0, ["t4"]]
+        expectedResults["t2"] = [1, 2, []]
+        expectedResults["t3"] = [0, 2, ["t4"]]
+        expectedResults["t4"] = [1, 0, ["t1", "t3"]]
         self.assertEquals("The League", result.leagueName)
         self.assertEquals(2, result.promoted)
         self.assertEquals(3, result.relegated)
@@ -1986,6 +1987,7 @@ class Test(unittest.TestCase):
             tableRow = result.tableRows[k]
             self.assertEquals(expectedResults[k][0], tableRow.won)
             self.assertEquals(expectedResults[k][1], tableRow.lost)
+            self.assertEquals(sorted(expectedResults[k][2]), sorted(tableRow.remainingOpponents))
             
     def testGetLeagueTableAllGamesComplete(self):
         xml = """
@@ -2079,6 +2081,7 @@ class Test(unittest.TestCase):
             self.assertEquals(expectedResults[k][2], tableRow.champions)
             self.assertEquals(expectedResults[k][3], tableRow.promoted)
             self.assertEquals(expectedResults[k][4], tableRow.relegated)
+            self.assertEquals([], tableRow.remainingOpponents)
         self.assertEquals(["Hello", "Goodbye"], result.notes)
                         
     def testGetLeagueTableNoGamesComplete(self):

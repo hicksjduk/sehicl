@@ -136,7 +136,7 @@ class Contacts(Page):
         <h2><a id="committee">Committee</a></h2>
         {committee}
         {committeemessages}
-        <h2><a id="club">Clubs</a></h2>
+        <h2><a id="club">Club secretaries</a></h2>
         {clubs}
         </div>
         """
@@ -156,10 +156,10 @@ class Contacts(Page):
             (tel: 01243 538800).
         </p>
         <p>
-            The main means of communication on league matters is by e-mail. For
+            The main means of communication on league matters is by e-mail. <b>For
             urgent contacts, however, it may be preferable to telephone; telephone
             numbers for committee members, club secretaries and team captains and
-            managers are given {phonelocation}.
+            managers are given {phonelocation}.</b>
         </p>
         <p>
             All e-mail contacts should be made using the e-mail addresses

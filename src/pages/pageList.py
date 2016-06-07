@@ -33,7 +33,7 @@ class PageList:
     pageList.append(UserAdmin("userAdmin", role="admin"))
     pageList.append(PartialContacts("contacts"))
     pageList.append(FullContacts("fullContacts", role=""))
-    pageList.append(StaticPage("presentation", "{0}/archive13/PresentationEvening.html".format(Settings.staticHtmlDirectory), "SEHICL Presentation Evening"))
+    pageList.append(StaticPage("presentation", "{0}/PresentationEvening.html".format(Settings.staticHtmlDirectory), "SEHICL Presentation Evening"))
     pageList.append(TeamFixtures("teamFixtures"))
     pageList.append(LeagueFixtures("allFixtures"))
     pageList.append(LeagueFixtures("leagueFixtures"))
@@ -57,14 +57,17 @@ class PageList:
     pageList.append(StaticPage("recordsWinners", "{0}/records/divwinners.html".format(Settings.staticHtmlDirectory), "SEHICL Honours Board: Divisional Winners"))
     pageList.append(StaticPage("recordsAwards", "{0}/records/individualawards.html".format(Settings.staticHtmlDirectory), "SEHICL Honours Board: Individual Awards"))
     pageList.append(StaticPage("recordsFairplay", "{0}/records/fairplay.html".format(Settings.staticHtmlDirectory), "SEHICL Honours Board: Sporting and Efficiency"))
-    pageList.append(ArchiveIndex("archive"))
+    lastArchiveSeason = 15
+    pageList.append(ArchiveIndex("archive", lastArchiveSeason))
     additionalPromotions = {}
     additionalPromotions[6] = {"Division3": [3], "Division4": [3]}
     additionalPromotions[7] = {"Division3": [3, 4], "Division4": [3, 4]}
     additionalPromotions[10] = {"Division4": [4]}
     additionalPromotions[12] = {"Division4": [3, 4]}
     additionalPromotions[13] = {"Division3": [3], "Division4": [3]}
-    for s in range(4, 14):
+    additionalPromotions[14] = {"Division2": [3], "Division3": [3], "Division4": [3,4]}
+    additionalPromotions[15] = {"Division4": [3]}
+    for s in range(4, lastArchiveSeason + 1):
         index = ArchiveSeasonIndex("archive{0}".format(s))
         title = index.getTitle()
         pageList.append(index)

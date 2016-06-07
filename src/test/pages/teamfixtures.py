@@ -179,7 +179,7 @@ class Test(TestBase):
 
     def testGetContentTeamIdSpecified(self):
         page = TeamFixtures("")
-        page.allParams = {"team": "IBMSouthHants", "xmlFile": "data/2012-13.xml"}
+        page.allParams = {"team": "IBMSouthHants", "xmlFile": "testData/2012-13.xml"}
         result = page.getContent()
         expectedResult = """
         <h1>IBM South Hants (<a href="/cgi-bin/page.py?id=leagueFixtures&league=Division3">Division 3</a>)</h1>
@@ -273,7 +273,7 @@ class Test(TestBase):
 
     def testGetContentTeamIdSpecifiedNoFixtures(self):
         page = TeamFixtures("")
-        page.allParams = {"team": "IBMSouthHants", "xmlFile": "data/2013-14.xml"}
+        page.allParams = {"team": "IBMSouthHants", "xmlFile": "testData/2013-14.xml"}
         result = page.getContent()
         self.assertNotEqual(None, result)
 

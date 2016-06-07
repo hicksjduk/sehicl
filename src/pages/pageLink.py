@@ -10,7 +10,7 @@ class PageLink:
     classdocs
     '''
 
-    def __init__(self, pageId, sourcePage, pageParams={}):
+    def __init__(self, pageId, sourcePage, pageParams={}, includeSeason=False):
         url = "/cgi-bin/page.py{0}"
         nvpTemplate = "{0}={1}"
         parmList = []
@@ -19,6 +19,10 @@ class PageLink:
         sessionId = None if sourcePage is None else sourcePage.allParams.get("session", None)
         if sessionId is not None:
             parmList.append(nvpTemplate.format("session", sessionId))
+        if includeSeason:
+            season = None if sourcePage is None else sourcePage.allParams.get("season", None)
+            if season is not None:
+                parmList.append(nvpTemplate.format("season", season))
         parmList.extend([nvpTemplate.format(k, pageParams[k]) for k in sorted(pageParams.keys())])
         pageParams = "" if len(parmList) == 0 else "?{0}".format(string.join(parmList, "&"))
         self.url = url.format(pageParams)

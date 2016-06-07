@@ -15,6 +15,7 @@ from emailsend.settings import Settings
 from pages import settings
 
 class UserException(Exception):
+    emailNotFound = "Email address not found"
     emailOrPasswordNotFound = "Email address and/or password not found"
     userNotActive = "User is not active - you must activate your ID before you can login"
     sessionExpired = "Session expired"
@@ -50,6 +51,8 @@ class UserDatabase:
     def __init__(self, userdb="{0}/users.db".format(settings.Settings.usersDirectory), emailSender=None):
         self.userdb = userdb
         self.emailSender = EmailSender() if emailSender is None else emailSender
+        self.blockList = []
+        self.blockList.append("u03.gmailmirror.com")
         
     def getConnection(self, externalConn):
         if externalConn is not None:
@@ -110,6 +113,8 @@ class UserDatabase:
             self.closeConnectionIfNecessary(externalConn, conn)
         
     def registerUser(self, email, name, club, password, externalConn=None):
+        if self.isBlocked(email):
+            return -1
         try:
             conn = None
             conn = self.getConnection(externalConn)
@@ -129,12 +134,29 @@ class UserDatabase:
                 self.closeConnectionIfNecessary(externalConn, conn)
         return answer
     
+    def remindOfPassword(self, email, externalConn=None):
+        if self.isBlocked(email):
+            return -1
+        try:
+            conn = self.getConnection(externalConn)
+            try:
+                row = conn.cursor().execute("select id from user where email = ?", (email,)).fetchone()
+                if row is None:
+                    raise UserException(UserException.emailNotFound)
+                userId, = row
+                self.sendPasswordReminderEmail(userId, email, externalConn=conn)
+            finally:
+                self.closeConnectionIfNecessary(externalConn, conn)
+        except sqlite3.Error as ex:
+            raise UserException("Error sending password reminder", ex)
+        
+    
     def activateUser(self, userId, externalConn=None):
-        self.setUserStatus(userId, self.activeStatus, True, externalConn)
+        return self.setUserStatus(userId, self.activeStatus, True, externalConn)
 
     def toggleUserStatus(self, userId, currentStatus,externalConn=None):
         newStatus = self.activeStatus if currentStatus == self.inactiveStatus else self.inactiveStatus
-        self.setUserStatus(userId, newStatus, False, externalConn)
+        return self.setUserStatus(userId, newStatus, False, externalConn)
 
     def setUserStatus(self, userId, status, notifyAdmin, externalConn=None):
         try:
@@ -213,6 +235,33 @@ class UserDatabase:
             raise UserException("Unable to send e-mail to specified address", ex)
         finally:
             self.closeConnectionIfNecessary(externalConn, conn)
+
+    def sendPasswordReminderEmail(self, userId, email, externalConn=None):
+        try:
+            conn = self.getConnection(externalConn)
+            try:
+                c = conn.cursor()
+                row = c.execute("select password from password where id = ?", (userId,)).fetchone()
+                if row is not None:
+                    password, = row
+                    message = """
+                        This is a password reminder for your account as a registered user of the South-East Hampshire Indoor Cricket League site.
+
+                        Your e-mail address (to which this message was sent) is your user name. Your password is {password}.
+
+                        If you did not request this password reminder, please inform the Webmaster.
+                
+                        Many thanks,
+                        The Webmaster
+                    """.format(password=password)
+                    message = string.join([l.strip() for l in re.split("\n", message)], "\n")
+                    self.emailSender.sendMessage([email], "SEHICL password reminder", message)
+            finally:
+                self.closeConnectionIfNecessary(externalConn, conn)
+        except sqlite3.Error as ex:
+            raise UserException("Error looking up password", ex)
+        except SMTPRecipientsRefused as ex:
+            raise UserException("Unable to send e-mail to specified address", ex)
 
     def sessionHasRole(self, token, role, externalConn=None):
         try:
@@ -313,3 +362,11 @@ class UserDatabase:
             raise UserException("Error looking up details of user {0}".format(userId), ex)
         finally:
             self.closeConnectionIfNecessary(externalConn, conn)
+    
+    def isBlocked(self, email):
+        answer = False
+        for b in self.blockList:
+            answer = string.find(email, b) != -1
+            if answer:
+                break
+        return answer

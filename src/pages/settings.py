@@ -5,12 +5,13 @@ Created on 29 Jul 2013
 '''
 class Settings:
     defaultPage = "home"
-    defaultSeason = 14
+    defaultSeason = 16
     
     rootDirectory = None
     dataDirectory = None
     staticHtmlDirectory = None
     usersDirectory = None
+    newsDirectory = None
     
     @staticmethod
     def setRootDirectory(root):
@@ -18,6 +19,7 @@ class Settings:
         Settings.dataDirectory = "{0}/data".format(root)
         Settings.staticHtmlDirectory = "{0}/statichtml".format(root)
         Settings.usersDirectory = "{0}/users".format(root)
+        Settings.newsDirectory = Settings.staticHtmlDirectory + "/news"
 
     @staticmethod
     def updateParams(params):

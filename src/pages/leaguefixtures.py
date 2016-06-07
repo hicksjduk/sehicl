@@ -104,9 +104,9 @@ class LeagueFixtures(Page):
         """
         mTime = DateFormatter.formatTime(match.time) if prevTime != match.time else ""
         mCourt = match.court
-        mHomeFixLink = PageLink("teamFixtures", self, {"team": match.homeTeamId})
+        mHomeFixLink = PageLink("teamFixtures", self, {"team": match.homeTeamId}, True)
         mHomeName = match.homeTeamName
-        mAwayFixLink = PageLink("teamFixtures", self, {"team": match.awayTeamId})
+        mAwayFixLink = PageLink("teamFixtures", self, {"team": match.awayTeamId}, True)
         mAwayName = match.awayTeamName
         mLeagueFix = ""
         if match.leagueId is not None:
@@ -115,7 +115,7 @@ class LeagueFixtures(Page):
                 <a href="{leaguefix.url}">{leaguename}</a>
             </td>
             """
-            lFixLink = PageLink("leagueFixtures", self, {"league": match.leagueId})
+            lFixLink = PageLink("leagueFixtures", self, {"league": match.leagueId}, True)
             mLeagueFix = lfHtml.format(leaguefix=lFixLink, leaguename=match.leagueName)
         answer = html.format(time=mTime, court=mCourt, homefix = mHomeFixLink, homename=mHomeName, awayfix=mAwayFixLink, awayname=mAwayName, leaguefix=mLeagueFix)
         return answer;

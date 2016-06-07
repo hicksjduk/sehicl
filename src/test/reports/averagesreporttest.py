@@ -126,9 +126,9 @@ class Test(unittest.TestCase):
         self.assertEquals(13, details.balls)
         self.assertEquals(22, details.runs)
         self.assertEquals(0, details.wickets)
-        self.assertEquals(13, details.bestBalls)
-        self.assertEquals(22, details.bestRuns)
-        self.assertEquals(0, details.bestWickets)
+        self.assertEquals(13, details.best[2])
+        self.assertEquals(22, details.best[1])
+        self.assertEquals(0, details.best[0])
         self.assertEquals(-1, details.averagePerWicket)
         self.assertAlmostEquals(10.153846153846153, details.averagePerOver, 15)
         self.assertEquals("9921.153846153846153PlayerMr", details.sortKey)
@@ -147,7 +147,7 @@ class Test(unittest.TestCase):
         players = {}
         bowler = BowlerInReport("asasa", "asdgasg", "asdgsda", "dgdasg")
         bowler.balls, bowler.runs, bowler.wickets = (42, 55, 3)
-        bowler.bestBalls, bowler.bestRuns, bowler.bestWickets = (11, 2, 1)
+        bowler.best = (1, 2, 11)
         bowlingAverages = {"p1": bowler}
         AveragesReportGenerator().updateBowlingAveragesFromPerformance(bowlerElement, teamId, teams, players, bowlingAverages)
         self.assertEquals(1, len(bowlingAverages))
@@ -156,9 +156,9 @@ class Test(unittest.TestCase):
         self.assertEquals(55, details.balls)
         self.assertEquals(77, details.runs)
         self.assertEquals(3, details.wickets)
-        self.assertEquals(11, details.bestBalls)
-        self.assertEquals(2, details.bestRuns)
-        self.assertEquals(1, details.bestWickets)
+        self.assertEquals(11, details.best[2])
+        self.assertEquals(2, details.best[1])
+        self.assertEquals(1, details.best[0])
         self.assertAlmostEquals(25.666666666666667, details.averagePerWicket, 15)
         self.assertAlmostEquals(8.4, details.averagePerOver, 15)
         self.assertEquals("9619.399999999999999asdgasg", details.sortKey)
@@ -177,7 +177,7 @@ class Test(unittest.TestCase):
         players = {}
         bowler = BowlerInReport("asasa", "asdgasg", "asdgsda", "dgdasg")
         bowler.balls, bowler.runs, bowler.wickets = (42, 55, 3)
-        bowler.bestBalls, bowler.bestRuns, bowler.bestWickets = (12, 22, 1)
+        bowler.best = (1, 22, 12)
         bowlingAverages = {"p1": bowler}
         AveragesReportGenerator().updateBowlingAveragesFromPerformance(bowlerElement, teamId, teams, players, bowlingAverages)
         self.assertEquals(1, len(bowlingAverages))
@@ -186,9 +186,9 @@ class Test(unittest.TestCase):
         self.assertEquals(55, details.balls)
         self.assertEquals(77, details.runs)
         self.assertEquals(4, details.wickets)
-        self.assertEquals(13, details.bestBalls)
-        self.assertEquals(22, details.bestRuns)
-        self.assertEquals(1, details.bestWickets)
+        self.assertEquals(13, details.best[2])
+        self.assertEquals(22, details.best[1])
+        self.assertEquals(1, details.best[0])
         self.assertAlmostEquals(19.25, details.averagePerWicket, 15)
         self.assertAlmostEquals(8.4, details.averagePerOver, 15)
         self.assertEquals("9519.399999999999999asdgasg", details.sortKey)
@@ -207,7 +207,7 @@ class Test(unittest.TestCase):
         players = {}
         bowler = BowlerInReport("asasa", "asdgasg", "asdgsda", "dgdasg")
         bowler.balls, bowler.runs, bowler.wickets = (42, 55, 0)
-        bowler.bestBalls, bowler.bestRuns, bowler.bestWickets = (12, 22, 0)
+        bowler.best = (0, 22, 12)
         bowlingAverages = {"p1": bowler}
         AveragesReportGenerator().updateBowlingAveragesFromPerformance(bowlerElement, teamId, teams, players, bowlingAverages)
         self.assertEquals(1, len(bowlingAverages))
@@ -216,9 +216,9 @@ class Test(unittest.TestCase):
         self.assertEquals(55, details.balls)
         self.assertEquals(77, details.runs)
         self.assertEquals(1, details.wickets)
-        self.assertEquals(13, details.bestBalls)
-        self.assertEquals(22, details.bestRuns)
-        self.assertEquals(1, details.bestWickets)
+        self.assertEquals(13, details.best[2])
+        self.assertEquals(22, details.best[1])
+        self.assertEquals(1, details.best[0])
         self.assertAlmostEquals(77, details.averagePerWicket, 15)
         self.assertAlmostEquals(8.4, details.averagePerOver, 15)
         self.assertEquals("9819.399999999999999asdgasg", details.sortKey)
@@ -237,7 +237,7 @@ class Test(unittest.TestCase):
         players = {}
         bowler = BowlerInReport("asasa", "asdgasg", "asdgsda", "dgdasg")
         bowler.balls, bowler.runs, bowler.wickets = (42, 55, 1)
-        bowler.bestBalls, bowler.bestRuns, bowler.bestWickets = (14, 22, 1)
+        bowler.best = (1, 22, 14)
         bowlingAverages = {"p1": bowler}
         AveragesReportGenerator().updateBowlingAveragesFromPerformance(bowlerElement, teamId, teams, players, bowlingAverages)
         self.assertEquals(1, len(bowlingAverages))
@@ -246,9 +246,9 @@ class Test(unittest.TestCase):
         self.assertEquals(55, details.balls)
         self.assertEquals(77, details.runs)
         self.assertEquals(2, details.wickets)
-        self.assertEquals(13, details.bestBalls)
-        self.assertEquals(22, details.bestRuns)
-        self.assertEquals(1, details.bestWickets)
+        self.assertEquals(13, details.best[2])
+        self.assertEquals(22, details.best[1])
+        self.assertEquals(1, details.best[0])
         self.assertAlmostEquals(38.5, details.averagePerWicket, 15)
         self.assertAlmostEquals(8.4, details.averagePerOver, 15)
         self.assertEquals("9719.399999999999999asdgasg", details.sortKey)
@@ -272,9 +272,9 @@ class Test(unittest.TestCase):
         self.assertEquals(0, details.balls)
         self.assertEquals(2, details.runs)
         self.assertEquals(0, details.wickets)
-        self.assertEquals(0, details.bestBalls)
-        self.assertEquals(2, details.bestRuns)
-        self.assertEquals(0, details.bestWickets)
+        self.assertEquals(0, details.best[2])
+        self.assertEquals(2, details.best[1])
+        self.assertEquals(0, details.best[0])
         self.assertAlmostEquals(-1, details.averagePerWicket, 15)
         self.assertAlmostEquals(-1, details.averagePerOver, 15)
         self.assertEquals("9910.000000000000000PlayerMr", details.sortKey)
@@ -413,8 +413,8 @@ class Test(unittest.TestCase):
         self.assertEquals(1, details.innings)
         self.assertEquals(32, details.runs)
         self.assertEquals(1, details.notout)
-        self.assertEquals(32, details.highScore)
-        self.assertEquals(False, details.highScoreOut)
+        self.assertEquals(32, details.highScore[0])
+        self.assertEquals(False, details.highScore[1])
         self.assertEquals(-1, details.average)
         self.assertEquals("967HicksJ", details.sortKey)
 
@@ -431,7 +431,7 @@ class Test(unittest.TestCase):
         players = {"p1": "J Hicks"}
         batsman = BatsmanInReport("p1", "J Hicks", "t1", "Team 1")
         batsman.runs, batsman.innings, batsman.notout = (68, 4, 2)
-        batsman.highScore, batsman.highScoreOut = (42, True)
+        batsman.highScore = (42, True)
         battingAverages = {"p1": batsman}
         AveragesReportGenerator().updateBattingAveragesFromPerformance(batsmanElement, teamId, teams, players, battingAverages)
         self.assertEquals(1, len(battingAverages))
@@ -440,8 +440,8 @@ class Test(unittest.TestCase):
         self.assertEquals(5, details.innings)
         self.assertEquals(100, details.runs)
         self.assertEquals(3, details.notout)
-        self.assertEquals(42, details.highScore)
-        self.assertEquals(True, details.highScoreOut)
+        self.assertEquals(42, details.highScore[0])
+        self.assertEquals(True, details.highScore[1])
         self.assertEquals(50, details.average)
         self.assertEquals("899HicksJ", details.sortKey)
 
@@ -458,7 +458,7 @@ class Test(unittest.TestCase):
         players = {"p1": "J Hicks"}
         batsman = BatsmanInReport("p1", "J Hicks", "t1", "Team 1")
         batsman.runs, batsman.innings, batsman.notout = (68, 4, 1)
-        batsman.highScore, batsman.highScoreOut = (31, True)
+        batsman.highScore = (31, True)
         battingAverages = {"p1": batsman}
         AveragesReportGenerator().updateBattingAveragesFromPerformance(batsmanElement, teamId, teams, players, battingAverages)
         self.assertEquals(1, len(battingAverages))
@@ -467,8 +467,8 @@ class Test(unittest.TestCase):
         self.assertEquals(5, details.innings)
         self.assertEquals(100, details.runs)
         self.assertEquals(2, details.notout)
-        self.assertEquals(32, details.highScore)
-        self.assertEquals(False, details.highScoreOut)
+        self.assertEquals(32, details.highScore[0])
+        self.assertEquals(False, details.highScore[1])
         self.assertAlmostEquals(33.333333333333333, details.average, 15)
         self.assertEquals("899HicksJ", details.sortKey)
 
@@ -485,7 +485,7 @@ class Test(unittest.TestCase):
         players = {"p1": "J Hicks"}
         batsman = BatsmanInReport("p1", "J Hicks", "t1", "Team 1")
         batsman.runs, batsman.innings, batsman.notout = (68, 4, 3)
-        batsman.highScore, batsman.highScoreOut = (32, True)
+        batsman.highScore = (32, True)
         battingAverages = {"p1": batsman}
         AveragesReportGenerator().updateBattingAveragesFromPerformance(batsmanElement, teamId, teams, players, battingAverages)
         self.assertEquals(1, len(battingAverages))
@@ -494,8 +494,8 @@ class Test(unittest.TestCase):
         self.assertEquals(5, details.innings)
         self.assertEquals(100, details.runs)
         self.assertEquals(3, details.notout)
-        self.assertEquals(32, details.highScore)
-        self.assertEquals(True, details.highScoreOut)
+        self.assertEquals(32, details.highScore[0])
+        self.assertEquals(True, details.highScore[1])
         self.assertAlmostEquals(50, details.average, 15)
         self.assertEquals("899HicksJ", details.sortKey)
 
@@ -512,7 +512,7 @@ class Test(unittest.TestCase):
         players = {"p1": "J Hicks"}
         batsman = BatsmanInReport("p1", "J Hicks", "t1", "Team 1")
         batsman.runs, batsman.innings, batsman.notout = (68, 4, 2)
-        batsman.highScore, batsman.highScoreOut = (32, False)
+        batsman.highScore = (32, False)
         battingAverages = {"p1": batsman}
         AveragesReportGenerator().updateBattingAveragesFromPerformance(batsmanElement, teamId, teams, players, battingAverages)
         self.assertEquals(1, len(battingAverages))
@@ -521,8 +521,8 @@ class Test(unittest.TestCase):
         self.assertEquals(5, details.innings)
         self.assertEquals(100, details.runs)
         self.assertEquals(3, details.notout)
-        self.assertEquals(32, details.highScore)
-        self.assertEquals(False, details.highScoreOut)
+        self.assertEquals(32, details.highScore[0])
+        self.assertEquals(False, details.highScore[1])
         self.assertAlmostEquals(50, details.average, 15)
         self.assertEquals("899HicksJ", details.sortKey)
 
@@ -539,7 +539,7 @@ class Test(unittest.TestCase):
         players = {"p1": "J Hicks"}
         batsman = BatsmanInReport("p1", "J Hicks", "t1", "Team 1")
         batsman.runs, batsman.innings, batsman.notout = (68, 4, 2)
-        batsman.highScore, batsman.highScoreOut = (32, True)
+        batsman.highScore = (32, True)
         battingAverages = {"p1": batsman}
         AveragesReportGenerator().updateBattingAveragesFromPerformance(batsmanElement, teamId, teams, players, battingAverages)
         self.assertEquals(1, len(battingAverages))
@@ -548,8 +548,8 @@ class Test(unittest.TestCase):
         self.assertEquals(5, details.innings)
         self.assertEquals(100, details.runs)
         self.assertEquals(3, details.notout)
-        self.assertEquals(32, details.highScore)
-        self.assertEquals(False, details.highScoreOut)
+        self.assertEquals(32, details.highScore[0])
+        self.assertEquals(False, details.highScore[1])
         self.assertAlmostEquals(50, details.average, 15)
         self.assertEquals("899HicksJ", details.sortKey)
 
@@ -1505,6 +1505,7 @@ class Test(unittest.TestCase):
         result = generator.getAverages(rootElement, leagues, teams, players, batting, bowling)
         self.assertEquals(result.lastCompleteMatchDate, None)
         self.assertEquals(result.lastScheduledMatchDate, datetime.date(2013, 8, 23))
+        self.assertEquals(False, result.complete)
         
     def testGetAveragesSomeRelevantMatchesPlayed(self):
         xml = """
@@ -1654,10 +1655,11 @@ class Test(unittest.TestCase):
         result = generator.getAverages(rootElement, leagues, teams, players, batting, bowling)
         self.assertEquals(result.lastCompleteMatchDate, datetime.date(2013, 8, 23))
         self.assertEquals(result.lastScheduledMatchDate, datetime.date(2013, 8, 23))
+        self.assertEquals(True, result.complete)
         self.assertEquals(0, result.toCome)
         
     def testGetAllTeamsByLeague(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         result = AveragesReportGenerator().getAllTeamsByLeague(rootElement)
         expectedResult = {}
         teams=[]

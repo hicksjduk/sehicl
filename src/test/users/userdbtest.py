@@ -217,6 +217,23 @@ class Test(unittest.TestCase):
         self.assertEquals([email], userDb.emailSender.messages[0].addressees)
         self.assertEquals([Settings.adminEmail], userDb.emailSender.messages[1].addressees)
         
+    def testRegisterBlocked(self):
+        conn = self.inMemoryDatabaseConnection()
+        email = "jeremy@u03.gmailmirror.com"
+        name = "Jeremy"
+        club = None
+        password = "password"
+        userDb = UserDatabase()
+        userDb.emailSender = DummyEmailSender()
+        result = userDb.registerUser(email, name, club, password, conn)
+        self.assertEquals(-1, result)
+        c = conn.cursor()
+        row = c.execute("select id, email, name, club, status from user").fetchone()
+        self.assertEquals(None, row)
+        row = c.execute("select password from password where id = ?", (result,)).fetchone()
+        self.assertEquals(None, row)
+        self.assertEquals([], userDb.emailSender.messages)
+        
     def testActivateUserIdNotFoundConnectionNotSpecified(self):
         dbName = "users/users.db"
         database = UserDatabase(dbName)
@@ -324,6 +341,31 @@ class Test(unittest.TestCase):
         result = UserDatabase().sessionHasRole(token, role, conn)
         expectedResult = True
         self.assertEqual(expectedResult, result)
+
+    def testRemindOfPasswordEmailExists(self):
+        conn = self.inMemoryDatabaseConnection()
+        email = "jeremy"
+        password = "password"
+        c = conn.cursor()
+        c.execute("insert into user (id, email) values (?, ?)", (1, email))
+        c.execute("insert into password (id, password) values (?, ?)", (1, password))
+        userDb = UserDatabase()
+        userDb.emailSender = DummyEmailSender()
+        userDb.remindOfPassword(email, conn)
+        self.assertEquals([email], userDb.emailSender.messages[0].addressees)
+
+    def testRemindOfPasswordEmailDoesNotExist(self):
+        conn = self.inMemoryDatabaseConnection()
+        email = "jeremy"
+        userDb = UserDatabase()
+        userDb.emailSender = DummyEmailSender()
+        try:
+            userDb.remindOfPassword(email, conn)
+            self.fail("Should have thrown an exception")
+        except UserException as ex:
+            self.assertEquals(UserException.emailNotFound, ex.message)
+            self.assertEquals(None, ex.cause)
+
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testLoginFailed']

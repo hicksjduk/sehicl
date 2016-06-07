@@ -14,18 +14,18 @@ class TestLeagueFixturesReportGenerator(unittest.TestCase):
 
 
     def testGetLeagueElementsLeagueSpecifiedNotFound(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         result = LeagueFixturesReportGenerator().getLeagueElements(rootElement, "ghgsd")
         self.assertEqual(0, len(result))
         
     def testGetLeagueElementsLeagueSpecifiedFound(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         result = LeagueFixturesReportGenerator().getLeagueElements(rootElement, "ColtsUnder16")
         self.assertEqual(1, len(result))
         self.assertEqual("Colts Under-16", result[0].find("name").text)
 
     def testGetLeagueElementsLeagueNotSpecified(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         result = LeagueFixturesReportGenerator().getLeagueElements(rootElement, None)
         expectedNames = ["Division 1", "Division 2", "Division 3", "Division 4", "Colts Under-16", "Colts Under-13"]
         names = [l.find("name").text for l in result]
@@ -345,7 +345,7 @@ class TestLeagueFixturesReportGenerator(unittest.TestCase):
         self.assertEqual(None, result.leagueName)
         
     def testGetReportOneLeagueNoIncompleteMatches(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         leagueId = "Division2"
         generator = LeagueFixturesReportGenerator()
         result = generator.getReport(rootElement, leagueId)
@@ -354,7 +354,7 @@ class TestLeagueFixturesReportGenerator(unittest.TestCase):
         self.assertEquals(0, len(result.matches))
             
     def testGetReportOneLeagueIncompleteMatches(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         leagueId = "Division1"
         generator = LeagueFixturesReportGenerator()
         result = generator.getReport(rootElement, leagueId)
@@ -365,7 +365,7 @@ class TestLeagueFixturesReportGenerator(unittest.TestCase):
         self.assertEquals(None, result.matches[0].leagueName)
             
     def testGetReportAllLeaguesNoIncompleteMatches(self):
-        rootElement = ElementTree.parse("data/2011-12.xml")
+        rootElement = ElementTree.parse("testData/2011-12.xml")
         leagueId = None
         generator = LeagueFixturesReportGenerator()
         result = generator.getReport(rootElement, leagueId)
@@ -374,7 +374,7 @@ class TestLeagueFixturesReportGenerator(unittest.TestCase):
         self.assertEquals(0, len(result.matches))
             
     def testGetReportAllLeaguesIncompleteMatches(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         leagueId = None
         generator = LeagueFixturesReportGenerator()
         result = generator.getReport(rootElement, leagueId)

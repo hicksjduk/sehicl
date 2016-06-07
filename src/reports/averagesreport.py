@@ -19,8 +19,7 @@ class BatsmanInReport(PlayerInReport):
         self.notout = 0
         self.runs = 0
         self.average = -1
-        self.highScore = 0
-        self.highScoreOut = False
+        self.highScore = None
         self.sortKey = None
         
     def maintainInvariants(self):
@@ -37,9 +36,7 @@ class BowlerInReport(PlayerInReport):
         self.balls = 0
         self.runs = 0
         self.wickets = 0
-        self.bestWickets = -1
-        self.bestRuns = 99999
-        self.bestBalls = 0
+        self.best = None
         self.averagePerWicket = -1
         self.averagePerOver = -1
         self.sortKey = None
@@ -102,6 +99,7 @@ class AveragesReportGenerator:
                                 incompleteMatchesByDate[date] = count + 1
         answer.lastCompleteMatchDate = lastCompleteMatchDate
         answer.lastScheduledMatchDate = lastScheduledMatchDate
+        answer.complete = len(incompleteMatchesByDate) == 0
         if lastCompleteMatchDate is not None:
             toCome = 0
             for d in sorted(incompleteMatchesByDate.keys()):
@@ -152,11 +150,9 @@ class AveragesReportGenerator:
         out = batsmanElement.find("out").text == "true"
         if not out:
             details.notout = details.notout + 1
-        if runs == details.highScore:
-            details.highScoreOut = out and details.highScoreOut 
-        elif runs > details.highScore:
-            details.highScore = runs
-            details.highScoreOut = out 
+        newHighScore = details.highScore is None or runs > details.highScore[0] or (runs == details.highScore[0] and details.highScore[1])
+        if newHighScore:
+            details.highScore = (runs, out)
         details.maintainInvariants()
 
     def updateBowlingAveragesFromMatch(self, playedMatchElement, teams, players, bowlingAverages):
@@ -182,16 +178,16 @@ class AveragesReportGenerator:
         details.runs = details.runs + runs
         details.wickets = details.wickets + wickets
         newBest = False
-        if details.bestWickets < wickets:
+        if details.best is None:
             newBest = True
-        elif details.bestWickets == wickets:
-            bestRR = -1 if details.bestBalls == 0 else details.bestRuns * 1.0 / details.bestBalls
+        elif details.best[0] < wickets:
+            newBest = True
+        elif details.best[0] == wickets:
+            bestRR = -1 if details.best[2] == 0 else details.best[1] * 1.0 / details.best[2]
             thisRR = -1 if balls == 0 else runs / balls
             newBest = thisRR < bestRR
         if newBest:
-            details.bestBalls = balls
-            details.bestRuns = runs
-            details.bestWickets = wickets
+            details.best = (wickets, runs, balls)
         details.maintainInvariants()
 
     def getLeagueBattingAveragesReport(self, rootElement, leagueIds):

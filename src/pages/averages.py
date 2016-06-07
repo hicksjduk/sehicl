@@ -59,7 +59,7 @@ class Averages(Page):
         elif self.allParams.get("archive", "no") == "yes":
             answer = ""
         else:
-            if table.lastCompleteMatchDate == table.lastScheduledMatchDate:
+            if table.complete:
                 message = "Final averages"
             else:
                 dateStr = DateFormatter.formatDate(table.lastCompleteMatchDate, True, True)
@@ -187,7 +187,7 @@ class BattingAverages(Averages):
         </tr>
         """
         thePosition = row.position if includePosition else ""
-        theHighscore = "{0}{1}".format(row.highScore, "" if row.highScoreOut else "*")
+        theHighscore = "{0}{1}".format(row.highScore[0], "" if row.highScore[1] else "*")
         theAverage = "" if row.average == -1 else "{0:.2f}".format(row.average)
         theTeam = self.getTeamNameColumn(row) if includeTeam else ""
         answer = html.format(row=row, position=thePosition, highscore=theHighscore, average=theAverage, team=theTeam)
@@ -267,7 +267,7 @@ class BowlingAverages(Averages):
             <td class="overs number">{overs}</td>
             <td class="runs number">{row.runs}</td>
             <td class="wickets number">{row.wickets}</td>
-            <td class="bestBowling number">{row.bestWickets}/{row.bestRuns}</td>
+            <td class="bestBowling number">{row.best[0]}/{row.best[1]}</td>
             <td class="averagePerWicket number">{avgPerWicket}</td>
             <td class="averagePerOver number">{avgPerOver}</td>
         </tr>

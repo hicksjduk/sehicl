@@ -17,7 +17,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, True)
+        row.highScore = (12, True)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -40,7 +40,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -63,7 +63,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 4, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -86,7 +86,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, True)
+        row.highScore = (12, True)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -109,7 +109,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -132,7 +132,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 4, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -155,7 +155,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, True)
+        row.highScore = (12, True)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -180,7 +180,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -205,7 +205,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 4, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -230,7 +230,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, True)
+        row.highScore = (12, True)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -255,7 +255,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 1, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -280,7 +280,7 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.runs, row.notout, row.innings = (26, 4, 4)
-        row.highScore, row.highScoreOut = (12, False)
+        row.highScore = (12, False)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -305,7 +305,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 0)
-        row.bestRuns, row.bestWickets = (2, 0)
+        row.best = (0, 2)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -329,7 +329,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -353,7 +353,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 1)
-        row.bestRuns, row.bestWickets = (2, 1)
+        row.best = (1, 2)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -377,7 +377,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -401,7 +401,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (95, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -425,7 +425,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (62, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = False
@@ -449,7 +449,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 0)
-        row.bestRuns, row.bestWickets = (2, 0)
+        row.best = (0, 2)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -473,7 +473,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -497,7 +497,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 1)
-        row.bestRuns, row.bestWickets = (2, 1)
+        row.best = (1, 2)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -521,7 +521,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -545,7 +545,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (95, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -569,7 +569,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (62, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = False
@@ -593,7 +593,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 0)
-        row.bestRuns, row.bestWickets = (2, 0)
+        row.best = (0, 2)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -619,7 +619,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -645,7 +645,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 1)
-        row.bestRuns, row.bestWickets = (2, 1)
+        row.best = (1, 2)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -671,7 +671,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -697,7 +697,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (95, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -723,7 +723,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (62, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = False
         includeTeam = True
@@ -749,7 +749,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 0)
-        row.bestRuns, row.bestWickets = (2, 0)
+        row.best = (0, 2)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -775,7 +775,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -801,7 +801,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (0, 2, 1)
-        row.bestRuns, row.bestWickets = (2, 1)
+        row.best = (1, 2)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -827,7 +827,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (54, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -853,7 +853,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (95, 130, 0)
-        row.bestRuns, row.bestWickets = (22, 0)
+        row.best = (0, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -879,7 +879,7 @@ class Test(TestBase):
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.position = 4
         row.balls, row.runs, row.wickets = (62, 130, 7)
-        row.bestRuns, row.bestWickets = (22, 3)
+        row.best = (3, 22)
         row.maintainInvariants()
         includePosition = True
         includeTeam = True
@@ -908,32 +908,32 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         maxRows = None
         result = BattingAverages("").getTableRows(report, maxRows)
@@ -1008,32 +1008,32 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         maxRows = None
         result = BattingAverages("").getTableRows(report, maxRows)
@@ -1120,32 +1120,32 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         maxRows = 4
         result = BattingAverages("").getTableRows(report, maxRows)
@@ -1210,32 +1210,32 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         maxRows = 4
         result = BattingAverages("").getTableRows(report, maxRows)
@@ -1310,37 +1310,37 @@ class Test(TestBase):
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         maxRows = None
         result = BowlingAverages("").getTableRows(report, maxRows)
@@ -1432,37 +1432,37 @@ class Test(TestBase):
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         maxRows = None
         result = BowlingAverages("").getTableRows(report, maxRows)
@@ -1568,37 +1568,37 @@ class Test(TestBase):
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         maxRows = 4
         result = BowlingAverages("").getTableRows(report, maxRows)
@@ -1657,37 +1657,37 @@ class Test(TestBase):
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         maxRows = 5
         result = BowlingAverages("").getTableRows(report, maxRows)
@@ -1767,37 +1767,37 @@ class Test(TestBase):
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         maxRows = 5
         result = BowlingAverages("").getReportData(report, maxRows)
@@ -1896,32 +1896,32 @@ class Test(TestBase):
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         maxRows = None
         result = BattingAverages("").getReportData(report, maxRows)
@@ -2024,12 +2024,12 @@ class Test(TestBase):
         report.teamName = "OPCS"
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.innings, row.notout, row.runs = (4, 2, 432)
-        row.highScore, row.highScoreOut = (40, False)
+        row.highScore = (40, False)
         row.maintainInvariants()
         report.battingAverages = [row]
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.balls, row.runs, row.wickets = (127, 100, 8)
-        row.bestRuns, row.bestWickets = 12, 3
+        row.best = (3, 12)
         row.maintainInvariants()
         report.bowlingAverages = [row]
         result = TeamAverages("").getReportData(report)
@@ -2104,36 +2104,37 @@ class Test(TestBase):
         report.teamName = None
         report.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         report.lastScheduledMatchDate = datetime.date(2013, 3, 3)
+        report.complete = True
         report.battingAverages = []
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         result = BattingAverages("").getReportBody(report)
         expectedResult = """
@@ -2237,36 +2238,37 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 2)
         report.lastScheduledMatchDate = datetime.date(2013, 3, 3)
         report.toCome = 0
+        report.complete = False
         report.battingAverages = []
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         result = BattingAverages("").getReportBody(report)
         expectedResult = """
@@ -2370,36 +2372,37 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 2)
         report.lastScheduledMatchDate = datetime.date(2013, 3, 3)
         report.toCome = 1
+        report.complete = False
         report.battingAverages = []
         row = BatsmanInReport("p1", "Player1", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 80)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p2", "Player2", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p3", "Player3", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 40)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p4", "Player4", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 100)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p5", "Player5", "t1", "OPCS")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         row = BatsmanInReport("p6", "Player6", "t2", "Moores")
         report.battingAverages.append(row)
         row.innings, row.notout, row.runs = (3, 2, 60)
-        row.highScore, row.highScoreOut = ("15", True)
+        row.highScore = ("15", True)
         row.maintainInvariants()
         result = BattingAverages("").getReportBody(report)
         expectedResult = """
@@ -2518,6 +2521,7 @@ class Test(TestBase):
         report = AveragesReport()
         report.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         report.lastScheduledMatchDate = datetime.date(2013, 3, 3)
+        report.complete = True
         result = Averages("").getStatusMessage(report)
         expectedResult = """
         <p class="statusMessage">Final averages.</p>
@@ -2529,6 +2533,7 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         report.lastScheduledMatchDate = datetime.date(2013, 2, 3)
         report.toCome = 0
+        report.complete = False
         result = Averages("").getStatusMessage(report)
         expectedResult = """
         <p class="statusMessage">Includes all games up to and including 3rd March 2013.</p>
@@ -2540,6 +2545,7 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         report.lastScheduledMatchDate = datetime.date(2013, 2, 3)
         report.toCome = 1
+        report.complete = False
         result = Averages("").getStatusMessage(report)
         expectedResult = """
         <p class="statusMessage">Date of last game included: 3rd March 2013 (1 result to come).</p>
@@ -2551,6 +2557,7 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         report.lastScheduledMatchDate = datetime.date(2013, 2, 3)
         report.toCome = 2
+        report.complete = False
         result = Averages("").getStatusMessage(report)
         expectedResult = """
         <p class="statusMessage">Date of last game included: 3rd March 2013 (2 results to come).</p>
@@ -2562,41 +2569,42 @@ class Test(TestBase):
         report.teamName = None
         report.lastCompleteMatchDate = datetime.date(2013, 3, 5)
         report.lastScheduledMatchDate = datetime.date(2013, 3, 5)
+        report.complete = True
         report.bowlingAverages = []
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         result = BowlingAverages("").getReportBody(report)
         expectedResult = """
@@ -2720,41 +2728,42 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 5)
         report.lastScheduledMatchDate = datetime.date(2013, 4, 5)
         report.toCome = 0
+        report.complete = False
         report.bowlingAverages = []
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         result = BowlingAverages("").getReportBody(report)
         expectedResult = """
@@ -2878,41 +2887,42 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 3, 5)
         report.lastScheduledMatchDate = datetime.date(2013, 4, 5)
         report.toCome = 1
+        report.complete = False
         report.bowlingAverages = []
         row = BowlerInReport("p1", "Player1", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p2", "Player2", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 4)
-        row.bestWickets, row.bestRuns = (3, 9)
+        row.best = (3, 9)
         row.maintainInvariants()
         row = BowlerInReport("p3", "Player3", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (100, 213, 2)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p4", "Player4", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 4)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p5", "Player5", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (57, 153, 1)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p6", "Player6", "t2", "Moores")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         row = BowlerInReport("p7", "Player7", "t1", "OPCS")
         report.bowlingAverages.append(row)
         row.balls, row.runs, row.wickets = (87, 153, 3)
-        row.bestWickets, row.bestRuns = (1, 26)
+        row.best = (1, 26)
         row.maintainInvariants()
         result = BowlingAverages("").getReportBody(report)
         expectedResult = """
@@ -3046,14 +3056,15 @@ class Test(TestBase):
         report.teamName = "OPCS"
         report.lastCompleteMatchDate = datetime.date(2013, 4, 2)
         report.lastScheduledMatchDate = datetime.date(2013, 4, 2)
+        report.complete = True
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.innings, row.notout, row.runs = (4, 2, 432)
-        row.highScore, row.highScoreOut = (40, False)
+        row.highScore = (40, False)
         row.maintainInvariants()
         report.battingAverages = [row]
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.balls, row.runs, row.wickets = (127, 100, 8)
-        row.bestRuns, row.bestWickets = 12, 3
+        row.best = (3, 12)
         row.maintainInvariants()
         report.bowlingAverages = [row]
         result = TeamAverages("").getReportBody(report)
@@ -3130,14 +3141,15 @@ class Test(TestBase):
         report.lastCompleteMatchDate = datetime.date(2013, 4, 2)
         report.lastScheduledMatchDate = datetime.date(2013, 4, 3)
         report.toCome = 0
+        report.complete = False
         row = BatsmanInReport("p1", "J Hicks", "t1", "OPCS")
         row.innings, row.notout, row.runs = (4, 2, 432)
-        row.highScore, row.highScoreOut = (40, False)
+        row.highScore = (40, False)
         row.maintainInvariants()
         report.battingAverages = [row]
         row = BowlerInReport("p1", "J Hicks", "t1", "OPCS")
         row.balls, row.runs, row.wickets = (127, 100, 8)
-        row.bestRuns, row.bestWickets = 12, 3
+        row.best = (3, 12)
         row.maintainInvariants()
         report.bowlingAverages = [row]
         result = TeamAverages("").getReportBody(report)
@@ -3262,19 +3274,19 @@ class Test(TestBase):
         
     def testGetContentForBatting(self):
         page = BattingAverages("batting")
-        page.allParams = {"xmlFile": "data/2012-13.xml"}
+        page.allParams = {"xmlFile": "testData/2012-13.xml"}
         result = page.getContent()
         self.assertNotEqual(None, result)
         
     def testGetContentForBowling(self):
         page = BowlingAverages("bowling")
-        page.allParams = {"xmlFile": "data/2012-13.xml", "league": "ColtsUnder16"}
+        page.allParams = {"xmlFile": "testData/2012-13.xml", "league": "ColtsUnder16"}
         result = page.getContent()
         self.assertNotEqual(None, result)
         
     def testGetContentForTeam(self):
         page = TeamAverages("team")
-        page.allParams = {"xmlFile": "data/2012-13.xml", "team": "IBMSouthHants"}
+        page.allParams = {"xmlFile": "testData/2012-13.xml", "team": "IBMSouthHants"}
         result = page.getContent()
         self.assertNotEqual(None, result)
         

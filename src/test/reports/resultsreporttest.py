@@ -563,7 +563,7 @@ class Test(unittest.TestCase):
         self.assertEquals("Unable to raise a team", result.reason)
         
     def testGetLeagueResultsReportLeagueIdNotFound(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         leagueId = "Division5"
         generator = ResultsReportGenerator()
         result = generator.getLeagueResultsReport(rootElement, leagueId)
@@ -571,7 +571,7 @@ class Test(unittest.TestCase):
         self.assertEqual(None, result.leagueName)
 
     def testGetLeagueResultsReportLeagueFound(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         leagueId = "Division1"
         generator = ResultsReportGenerator()
         result = generator.getLeagueResultsReport(rootElement, leagueId)
@@ -580,7 +580,7 @@ class Test(unittest.TestCase):
         self.assertEqual(45, len(result.matches))
         
     def testGetAllMatchDatesWithCompletedMatchesAllCompleteNoExcludedDate(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         generator = ResultsReportGenerator()
         result = generator.getAllMatchDatesWithCompletedMatches(rootElement)
         expectedResults = []
@@ -596,7 +596,7 @@ class Test(unittest.TestCase):
             self.assertEquals(e, a)
 
     def testGetAllMatchDatesWithCompletedMatchesAllCompleteExcludedDate(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         generator = ResultsReportGenerator()
         excludeDate = datetime.date(2013, 3, 3)
         result = generator.getAllMatchDatesWithCompletedMatches(rootElement, excludeDate)
@@ -613,13 +613,13 @@ class Test(unittest.TestCase):
             self.assertEquals(e, a)
 
     def testGetAllMatchDatesWithCompletedMatchesNoneComplete(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         generator = ResultsReportGenerator()
         result = generator.getAllMatchDatesWithCompletedMatches(rootElement)
         self.assertEquals(0, len(result))
         
     def testGetDateResultsReportDateSpecified(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         generator = ResultsReportGenerator()
         date = datetime.date(2013, 3, 3)
         result = generator.getDateResultsReport(rootElement, date)
@@ -628,7 +628,7 @@ class Test(unittest.TestCase):
         self.assertEqual(12, len(result.matches))
 
     def testGetDateResultsReportNoDateSpecifiedResultsExist(self):
-        rootElement = ElementTree.parse("data/2012-13.xml")
+        rootElement = ElementTree.parse("testData/2012-13.xml")
         generator = ResultsReportGenerator()
         date = None
         result = generator.getDateResultsReport(rootElement, date)
@@ -637,7 +637,7 @@ class Test(unittest.TestCase):
         self.assertEqual(12, len(result.matches))
 
     def testGetDateResultsReportNoDateSpecifiedNoResultsExist(self):
-        rootElement = ElementTree.parse("data/2013-14.xml")
+        rootElement = ElementTree.parse("testData/2013-14.xml")
         generator = ResultsReportGenerator()
         date = None
         result = generator.getDateResultsReport(rootElement, date)

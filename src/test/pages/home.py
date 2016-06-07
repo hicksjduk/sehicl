@@ -4,6 +4,7 @@ Created on 30 Jul 2013
 @author: hicksj
 '''
 from pages.home import HomePage
+from pages.settings import Settings
 import unittest
 import string
 
@@ -11,19 +12,26 @@ import string
 class Test(unittest.TestCase):
 
 
-    def testGetNewsEmptyNewsSpecified(self):
-        news = []
-        result = HomePage("").getNews(news)
+    def testGetNewsEmptyNewsDir(self):
+        Settings.setRootDirectory("testData/news/empty")
+        result = HomePage("").getNews()
         self.assertEquals("", result)
 
-    def testGetNewsNonEmptyNewsSpecified(self):
-        news = ["Hello"]
-        result = HomePage("").getNews(news)
+    def testGetNewsExpiredNewsDir(self):
+        Settings.setRootDirectory("testData/news/expired")
+        result = HomePage("").getNews()
+        self.assertEquals("", result)
+
+    def testGetNewsNonEmptyNewsDir(self):
+        Settings.setRootDirectory("testData/news/notexpired")
+        result = HomePage("").getNews()
         self.assertEquals(1, string.count(result, "<p>"))
         
     def testGetNewsDefaultNews(self):
+        Settings.setRootDirectory(".")
         result = HomePage("").getNews()
         self.assertTrue(result is not None)
+        print(result)
         
 
 if __name__ == "__main__":

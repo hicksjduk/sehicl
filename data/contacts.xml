@@ -3,17 +3,28 @@
 	<defaultDomain>sehicl.org.uk</defaultDomain>
 
 	<person>
-		<name>Mark Acaster</name>
-		<phone>07730680489</phone>
+		<name>John Adams</name>
+		<phone>07789 681178</phone>
+		<phone>01329 516450</phone>
+		<role name="B team" club="Gosport Borough"/>
 	</person>
 
 	<person>
-		<name>Keith Adams</name>
-		<address>33 Gilbert Mead, Hayling Island PO11 0RE</address>
-		<phone>02392461721</phone>
-		<phone>07545376015</phone>
+		<name>Dave Moody</name>
+		<address>2 Magdala Road, Hayling Island PO11 0BH</address>
+		<phone>02392 464401</phone>
 		<role name="Secretary" club="Hayling Island">
 			<email id="hayling.secretary" />
+		</role>
+	</person>
+
+	<person>
+		<name>Sally Anderson</name>
+		<address>28 Highfield Avenue, Fareham PO14 1HZ</address>
+		<phone>01329 314767</phone>
+		<phone>07710 189157</phone>
+		<role name="Secretary" club="Sarisbury Athletic">
+			<email id="sarisbury.secretary" />
 		</role>
 	</person>
 
@@ -22,25 +33,29 @@
 		<address>24 Victory Road, Fareham PO14 2SE</address>
 		<phone>01329665945</phone>
 		<phone>07815191990</phone>
-		<role name="Umpires' Co-ordinator">
-			<email id="umpires" />
-		</role>
 	</person>
 
 	<person>
-		<name>Alan Atkinson</name>
-		<address>31 Harbour Tower, Gosport PO12 1HD</address>
-		<phone>02392529660</phone>
-		<phone>07753292173</phone>
-		<role name="Secretary" club="United Services">
-			<email id="us.secretary" />
+		<name>Jon Ashford</name>
+		<address>38 Wesley Grove, Copnor PO3 5ER</address>
+		<phone>02392 342837</phone>
+		<phone>07795 277088</phone>
+		<role name="Secretary" club="ServiceMaster">
+			<email id="servicemaster.secretary" />
 		</role>
+		<role name="Captain" club="ServiceMaster"/>
 	</person>
 
 	<person>
-		<name>Alan Baker</name>
-		<address>Grasmere, 5 Langstone Avenue, Havant PO9 1RU</address>
-		<phone>02392483323</phone>
+		<name>Tim Bailey</name>
+		<phone>07887 744931</phone>
+		<role name="C team" club="Portsmouth" />
+	</person>
+
+	<person>
+		<name>David Walker</name>
+		<address>14 Oak Coppice Road, Whiteley, Fareham PO15 7GU</address>
+		<phone>07708 136356</phone>
 		<role name="Secretary" club="Havant">
 			<email id="havant.secretary" />
 		</role>
@@ -57,37 +72,35 @@
 	</person>
 
 	<person>
-		<name>Ross Basketter</name>
-		<phone>07970290359</phone>
-	</person>
-
-	<person>
-		<name>Andy Beadle</name>
-		<phone>02392596782</phone>
-		<role name="Under-16" club="Waterlooville" />
-	</person>
-
-	<person>
-		<name>Darren Beddoe</name>
-		<address>14 Geranium Gardens, Denmead PO7 6FN</address>
-		<phone>02393114771</phone>
-		<phone>07711771097</phone>
-		<role name="Secretary" club="Corinthians">
-			<email id="corinthians.secretary" />
+		<name>Tracy Beadle</name>
+		<address>19 Pentere Road, Lovedean PO8 9HG</address>
+		<phone>02392 596782</phone>
+		<role name="Secretary" club="Waterlooville">
+			<email id="waterlooville.secretary" />
 		</role>
-		<role name="Captain" club="Corinthians" />
 	</person>
-
+	
 	<person>
 		<name>Matt Benfield</name>
-		<phone>07709579952</phone>
+		<phone>07584 901705</phone>
 		<role name="Senior" club="Portsmouth &amp; Southsea" />
 	</person>
 
 	<person>
-		<name>Mark Bowler</name>
-		<phone>01489605434</phone>
-		<role name="Under-16" club="Sarisbury Athletic" />
+		<name>Shaun Blanks</name>
+		<phone>07880 797177</phone>
+		<role name="Senior" club="Petersfield" />
+	</person>
+
+	<person>
+		<name>Matt Bradley</name>
+		<address>20 Beech Road, Clanfield PO8 0LH</address>
+		<phone>02392 591576</phone>
+		<phone>07788 897780</phone>
+		<role name="Secretary" club="Clanfield">
+			<email id="clanfield.secretary" />
+		</role>
+		<role name="Captain" club="Clanfield"/>
 	</person>
 
 	<person>
@@ -103,19 +116,19 @@
 	<person>
 		<name>Jeremy Bulled</name>
 		<phone>07717760252</phone>
-		<role name="A team" club="Havant" />
+		<role name="B team" club="Havant" />
 	</person>
 
 	<person>
-		<name>Greg Butler</name>
-		<phone>07919107090</phone>
-		<role name="Captain" club="St James Casuals" />
+		<name>Gary Callaghan</name>
+		<phone>07828 934401</phone>
 	</person>
 
 	<person>
-		<name>Lee Carroll</name>
-		<phone>07791841782</phone>
-		<role name="Captain" club="United Services" />
+		<name>Mark Carter</name>
+		<phone>07710 288857</phone>
+		<role name="Under-16" club="Havant" />
+		<role name="Under-13" club="Havant" />
 	</person>
 
 	<person>
@@ -125,15 +138,8 @@
 	</person>
 
 	<person>
-		<name>Matt Charman</name>
-		<phone>07727162708</phone>
-		<role name="B team" club="Waterlooville" />
-	</person>
-
-	<person>
 		<name>Saleem Chaudhry</name>
 		<phone>07446057165</phone>
-		<role name="A team" club="XIIth Men" />
 	</person>
 
 	<person>
@@ -144,14 +150,38 @@
 
 	<person>
 		<name>Mike Collins</name>
+		<address>17 Buckland Close, Waterlooville PO7 6ED</address>
 		<phone>07905 373054</phone>
+		<role name="Secretary" club="Bedhampton">
+			<email id="bedhampton.secretary" />
+		</role>
 		<role name="C team" club="Bedhampton" />
 	</person>
 
 	<person>
-		<name>Mick Cook</name>
-		<phone>07730 012796</phone>
-		<role name="Under-13" club="Locks Heath" />
+		<name>Barbara Cooke</name>
+		<address>136 Clayhill Road, Gosport PO12 2AJ</address>
+		<phone>07968103578</phone>
+		<role name="Secretary" club="Gosport Borough">
+			<email id="gosport.secretary" />
+		</role>
+	</person>
+
+	<person>
+		<name>Carol Cooper</name>
+		<role name="President">
+			<email id="president" />
+		</role>
+	</person>
+
+	<person>
+		<name>Alex Cornborough</name>
+		<address>13 Colebrook Avenue, Copnor PO3 6PS</address>
+		<phone>02392 691461</phone>
+		<phone>07745 497291</phone>
+		<role name="Secretary" club="Purbrook">
+			<email id="purbrook.secretary" />
+		</role>
 	</person>
 
 	<person>
@@ -162,6 +192,30 @@
 		<role name="Secretary" club="Curdridge">
 			<email id="curdridge.secretary" />
 		</role>
+	</person>
+
+	<person>
+		<name>Simon Creal</name>
+		<phone>07854 439898</phone>
+		<role name="Under-13" club="Gosport Borough"/>
+	</person>
+
+	<person>
+		<name>Aaron Dean</name>
+		<phone>02392 250863</phone>
+		<phone>07881 497291</phone>
+	</person>
+
+	<person>
+		<name>Steve Dean</name>
+		<phone>07775865925</phone>
+		<role name="B team" club="Fareham &amp; Crofton" />
+	</person>
+
+	<person>
+		<name>Tim Dix</name>
+		<phone>01329 517709</phone>
+		<role name="Under-16" club="Fareham &amp; Crofton" />
 	</person>
 
 	<person>
@@ -176,37 +230,14 @@
 
 	<person>
 		<name>Phil Dunn</name>
-		<phone>01489605827</phone>
-		<role name="Under-13" club="Sarisbury Athletic" />
+		<phone>07885 735064</phone>
+		<role name="Under-16" club="Sarisbury Athletic" />
 	</person>
 
 	<person>
-		<name>Kevin Dunne</name>
-		<address>61 Beaufort Road, Bedhampton PO9 3HT</address>
-		<phone>02392367940</phone>
-		<phone>07805599173</phone>
-		<role name="Secretary" club="Portsmouth &amp; Southsea">
-			<email id="portssouthsea.secretary" />
-		</role>
-	</person>
-
-	<person>
-		<name>Matt Eales</name>
-		<phone>07984881984</phone>
-		<role name="Captain" club="Knowle Village" />
-	</person>
-
-	<person>
-		<name>Dave Erridge</name>
-		<phone>07552722660</phone>
-		<role name="Under-16" club="Gosport Borough" />
-	</person>
-
-	<person>
-		<name>Sean Figgins</name>
-		<phone>02392614353</phone>
-		<phone>07921082677</phone>
-		<role name="A team" club="Purbrook" />
+		<name>Jon Floyd</name>
+		<phone>07802 268853</phone>
+		<role name="A team" club="Sarisbury Athletic" />
 	</person>
 
 	<person>
@@ -214,25 +245,30 @@
 		<address>23 Buckmore Avenue, Petersfield GU32 2EG</address>
 		<phone>01730269906</phone>
 		<phone>07976441475</phone>
+	</person>
+
+	<person>
+		<name>John Childs</name>
+		<phone>01730 263864</phone>
+		<phone>07950 309248</phone>
 		<role name="Secretary" club="Petersfield">
 			<email id="petersfield.secretary" />
 		</role>
 	</person>
 
 	<person>
-		<name>Duncan Garland</name>
-		<phone>02392664017</phone>
-		<phone>07977105633</phone>
-		<role name="B team" club="Purbrook" />
+		<name>Paul Friedrich</name>
+		<phone>07968 933569</phone>
+		<role name="B team" club="Sarisbury Athletic" />
 	</person>
 
 	<person>
-		<name>Joy Godbold</name>
-		<address>25 Foster Road, Gosport PO12 2JH</address>
-		<phone>02392510897</phone>
-		<phone>07958406350</phone>
-		<role name="Secretary" club="Gosport Borough">
-			<email id="gosport.secretary" />
+		<name>Daniel Frostick</name>
+		<address>54 West Street, Portchester PO16 7XB</address>
+		<phone>023 9265 3563</phone>
+		<phone>07884 194505</phone>
+		<role name="Secretary" club="Portsmouth Academics">
+			<email id="academics.secretary" />
 		</role>
 	</person>
 
@@ -243,9 +279,27 @@
 	</person>
 
 	<person>
-		<name>Ricky Harding</name>
-		<phone>07900 732905</phone>
-		<role name="B team" club="Bedhampton" />
+		<name>Gursaant</name>
+		<phone>07903 823134</phone>
+		<role name="A team" club="XIIth Men" />
+	</person>
+
+	<person>
+		<name>Shaun Harris</name>
+		<phone>07709 579952</phone>
+		<role name="Under-16" club="Gosport Borough"/>
+	</person>
+
+	<person>
+		<name>James Hawley</name>
+		<phone>01329 886635</phone>
+		<role name="Captain" club="St James Casuals"/>
+	</person>
+
+	<person>
+		<name>James Headon</name>
+		<phone>07508 000085</phone>
+		<role name="A team" club="Fareham &amp; Crofton" />
 	</person>
 
 	<person>
@@ -259,25 +313,45 @@
 		<role name="Webmaster">
 			<email id="website" />
 		</role>
+		<role name="Secretary" club="OPCS Titchfield">
+			<email id="opcs.secretary" />
+		</role>
+		<role name="Captain" club="OPCS Titchfield"/>
+	</person>
+
+	<person>
+		<name>Peter Hicks</name>
+		<phone>07803 463286</phone>
+		<role name="Captain" club="IBM South Hants" />
+	</person>
+
+	<person>
+		<name>Sam Hillman</name>
+		<phone>07794 998443</phone>
+	</person>
+
+	<person>
+		<name>Peter Hopson</name>
+		<phone>07882057913</phone>
+		<role name="A team" club="Havant" />
+	</person>
+
+	<person>
+		<name>Chris Hovey</name>
+		<phone>07702409697</phone>
+		<role name="B team" club="Bedhampton" />
 	</person>
 
 	<person>
 		<name>John Howard</name>
-		<phone>02392637877</phone>
 		<phone>07795083692</phone>
 		<role name="Under-16" club="Purbrook" />
-		<role name="Under-13" club="Purbrook" />
-	</person>
-
-	<person>
-		<name>Lee Hungerford</name>
-		<phone>07546273745</phone>
-		<role name="Captain" club="Portchester" />
 	</person>
 
 	<person>
 		<name>Jim Ireson</name>
-		<address>20 South Lane, Southbourne, Emsworth PO10 8PP</address>
+		<address>11 Broad Oak Lane, Bexhill-on-Sea TN39 4HE</address>
+		<phone>01424 576054</phone>
 		<phone>07712217242</phone>
 		<role name="Secretary" club="Railway Triangle">
 			<email id="triangle.secretary" />
@@ -285,16 +359,26 @@
 	</person>
 
 	<person>
-		<name>Tim Jacobs</name>
-		<phone>07918058220</phone>
+		<name>Simon Izzard</name>
+		<phone>07791 675618</phone>
+		<role name="Captain" club="Knowle Village"/>
+	</person>
+
+	<person>
+		<name>Sean Kanavan</name>
+		<phone>07890 323072</phone>
 		<role name="Under-16" club="Portsmouth &amp; Southsea" />
 	</person>
 
 	<person>
 		<name>Barrie James</name>
-		<address>204 Highbury Grove, Cosham PO6 2RU</address>
-		<phone>07896576818</phone>
+		<phone>07901214254</phone>
 		<role name="Captain" club="Southern Electric"/>
+	</person>
+
+	<person>
+		<name>Andy King</name>
+		<phone>07919 107090</phone>
 	</person>
 
 	<person>
@@ -304,19 +388,15 @@
 	</person>
 
 	<person>
-		<name>Paul Kooner-Evans</name>
-		<phone>07886737613</phone>
-		<role name="Under-13" club="Portsmouth" />
+		<name>Jo Larcombe</name>
+		<phone>07934 698267</phone>
+		<role name="Under-13" club="Sarisbury Athletic" />
 	</person>
 
 	<person>
 		<name>Shane Lawrence</name>
 		<address>29 Benham Drive, Hilsea, Portsmouth PO3 5QW</address>
 		<phone>07900634745</phone>
-		<role name="Secretary" club="Portsmouth Priory">
-			<email id="priory.secretary" />
-		</role>
-		<role name="Captain" club="Portsmouth Priory" />
 	</person>
 
 	<person>
@@ -326,35 +406,19 @@
 	</person>
 
 	<person>
-		<name>Helen Leppard</name>
-		<address>14 Elgin Road, Cosham, Portsmouth PO6 2SU</address>
-		<phone>02392612521</phone>
-		<phone>07810567928</phone>
-		<role name="Secretary" club="Waterlooville">
-			<email id="waterlooville.secretary" />
-		</role>
-	</person>
-	
-	<person>
 		<name>Pete Levy</name>
-		<phone>07765212246</phone>
+		<phone>07717 003998</phone>
 		<role name="B team" club="Locks Heath" />
 	</person>
 
 	<person>
 		<name>Peter Lindstrom</name>
-		<address>5 Bickleigh House, Knowle Village, Fareham PO17 5FT</address>
-		<phone>01329832072</phone>
+		<address>39 Oak Tree Drive, Emsworth PO10 7UJ</address>
+		<phone>01243 372396</phone>
 		<phone>07866503929</phone>
 		<role name="Secretary" club="Knowle Village">
 			<email id="knowle.secretary" />
 		</role>
-	</person>
-
-	<person>
-		<name>Phil Loat</name>
-		<phone>07768046822</phone>
-		<role name="B team" club="Havant" />
 	</person>
 
 	<person>
@@ -367,12 +431,6 @@
 	</person>
 
 	<person>
-		<name>Mike Marchant</name>
-		<phone>07845543842</phone>
-		<role name="B team" club="Fareham &amp; Crofton" />
-	</person>
-
-	<person>
 		<name>Rick Marston</name>
 		<address>113 Festing Grove, Portsmouth PO4 9QE</address>
 		<phone>02392735987</phone>
@@ -381,8 +439,12 @@
 			<email id="portsmouth.secretary" />
 		</role>
 		<role name="B team" club="Portsmouth" />
-		<role name="C team" club="Portsmouth" />
-		<role name="Under-16" club="Portsmouth" />
+	</person>
+
+	<person>
+		<name>Jason Manning</name>
+		<phone>07507 676321</phone>
+		<role name="Captain" club="Portsmouth Academics" />
 	</person>
 
 	<person>
@@ -409,30 +471,46 @@
 		<name>Paddy May</name>
 		<phone>07717774946</phone>
 		<role name="Under-16" club="Petersfield" />
-		<role name="Under-13" club="Petersfield" />
+	</person>
+
+	<person>
+		<name>Paul McVeigh</name>
+		<address>4 Boulton Road, Southsea PO5 1NT</address>
+		<phone>02392 178732</phone>
+		<phone>07913 871505</phone>
 	</person>
 
 	<person>
 		<name>Dave Mitchard</name>
-		<phone>07771556137</phone>
-		<role name="B team" club="Sarisbury Athletic" />
+		<phone>07791 858116</phone>
 	</person>
 
 	<person>
-		<name>Jamie Nottage</name>
-		<phone>07801992286</phone>
+		<name>Daniel Oliver</name>
+		<phone>07920 887093</phone>
+		<role name="Under-13" club="Havant" />
+	</person>
+
+	<person>
+		<name>Neil Palmer</name>
+		<phone>07736 794865</phone>
+		<role name="Under-16" club="Portsmouth" />
 	</person>
 
 	<person>
 		<name>Andy Paskins</name>
 		<phone>07549705129</phone>
+	</person>
+
+	<person>
+		<name>Jack Paskins</name>
+		<phone>07535 355289</phone>
 		<role name="A team" club="Locks Heath" />
 	</person>
 
 	<person>
 		<name>Jeremy Penny</name>
 		<address>17 Stanley Street, Southsea PO5 2DS</address>
-		<phone>02392837374</phone>
 		<phone>07970700837</phone>
 		<role name="Secretary" club="XIIth Men">
 			<email id="xiithmen.secretary" />
@@ -440,9 +518,15 @@
 	</person>
 
 	<person>
-		<name>Colin Pidgeon</name>
-		<phone>02392353682</phone>
+		<name>Mark Perrin</name>
+		<phone>07818 453786</phone>
 		<role name="Under-13" club="Portsmouth &amp; Southsea" />
+	</person>
+
+	<person>
+		<name>Dave Pitts</name>
+		<phone>07872139086</phone>
+		<role name="Captain" club="Emsworth" />
 	</person>
 
 	<person>
@@ -455,15 +539,31 @@
 	</person>
 
 	<person>
+		<name>Sally Priddy</name>
+		<address>4 The Acorns, Denmead PO7 6DQ</address>
+		<phone>07799788874</phone>
+		<role name="Secretary" club="IBM South Hants">
+			<email id="ibm.secretary" />
+		</role>
+	</person>
+
+	<person>
 		<name>Matt Reeves</name>
 		<phone>07807045580</phone>
-		<role name="A team" club="Sarisbury Athletic" />
 	</person>
 
 	<person>
 		<name>Andy Reynolds</name>
 		<phone>07748844609</phone>
+		<role name="Under-16" club="Waterlooville" />
 		<role name="Under-13" club="Waterlooville" />
+	</person>
+
+	<person>
+		<name>Kevin Riley</name>
+		<address>34 Fearon Road, North End, Portsmouth PO2 0NJ</address>
+		<phone>02392 838383</phone>
+		<phone>07710 553778</phone>
 	</person>
 
 	<person>
@@ -471,15 +571,37 @@
 		<address>192a Locks Road, Locks Heath SO31 6LE</address>
 		<phone>01489581477</phone>
 		<phone>07918671878</phone>
-		<role name="Secretary" club="Sarisbury Athletic">
-			<email id="sarisbury.secretary" />
+	</person>
+
+	<person>
+		<name>Shaun Russell</name>
+		<phone>07590 555274</phone>
+	</person>
+
+	<person>
+		<name>Jayne Saunders</name>
+		<address>63 Green Lane, Copnor, Portsmouth PO3 5EZ</address>
+		<phone>02392653563</phone>
+		<role name="Secretary" club="Portsmouth &amp; Southsea">
+			<email id="portssouthsea.secretary" />
 		</role>
+	</person>
+
+	<person>
+		<name>Kev Sawyer</name>
+		<phone>07834 369942</phone>
+		<role name="B team" club="Waterlooville" />
 	</person>
 
 	<person>
 		<name>James Scott</name>
 		<phone>07912022536</phone>
-		<role name="A team" club="Portsmouth" />
+	</person>
+
+	<person>
+		<name>Darren Shergill</name>
+		<phone>07748 323733</phone>
+		<role name="Under-13" club="Locks Heath" />
 	</person>
 
 	<person>
@@ -494,8 +616,8 @@
 
 	<person>
 		<name>Adam Smith</name>
-		<address>Flat 6, Ensign House, Providence Hill, Bursledon SO31 8AP</address>
-		<phone>02381780976</phone>
+		<address>19 Mill Gardens, West End, Southampton SO18 3AG</address>
+		<phone>02381 785243</phone>
 		<phone>07988806693</phone>
 		<role name="Secretary">
 			<email id="secretary" />
@@ -504,12 +626,14 @@
 			<email id="bowman.secretary" />
 		</role>
 		<role name="Captain" club="Hampshire Bowman" />
+		<role name="Umpires' Co-ordinator">
+			<email id="umpires" />
+		</role>
 	</person>
 
 	<person>
-		<name>Mike Smith</name>
-		<phone>07807273520</phone>
-		<role name="Captain" club="Emsworth" />
+		<name>Matthew Smith</name>
+		<phone>07784 492318</phone>
 	</person>
 
 	<person>
@@ -519,38 +643,43 @@
 	</person>
 
 	<person>
+		<name>Stefan Goodson</name>
+		<phone>0746 8587374</phone>
+		<role name="Captain" club="Portchester" />
+	</person>
+
+	<person>
+		<name>Josh Spiers</name>
+		<phone>07741 294958</phone>
+		<role name="Senior" club="Purbrook" />
+	</person>
+
+	<person>
 		<name>Dave Squires</name>
 		<phone>07841011216</phone>
-		<role name="Under-16" club="Petersfield" />
+	</person>
+
+	<person>
+		<name>James Stratford-Tuke</name>
+		<phone>07976 441475</phone>
 		<role name="Under-13" club="Petersfield" />
 	</person>
 
 	<person>
-		<name>Craig Stainton</name>
-		<phone>07881525558</phone>
-		<role name="Under-16" club="Havant" />
-	</person>
-
-	<person>
-		<name>Charlie Stubbs</name>
-		<address>37 Dryden Close, Fareham PO16 7NJ</address>
-		<phone>01329289209</phone>
-		<phone>07789345688</phone>
-		<role name="Secretary" club="Fareham &amp; Crofton">
-			<email id="fareham.secretary" />
-		</role>
+		<name>Andy Stretton</name>
+		<phone>07917 341864</phone>
+		<role name="Under-13" club="Portsmouth" />
 	</person>
 
 	<person>
 		<name>Scott Taylor</name>
 		<phone>07709579952</phone>
-		<role name="Senior" club="Gosport Borough" />
+		<role name="A team" club="Gosport Borough" />
 	</person>
 
 	<person>
 		<name>Richard Thomas</name>
 		<phone>01730894974</phone>
-		<role name="Senior" club="Petersfield" />
 	</person>
 
 	<person>
@@ -560,25 +689,23 @@
 	</person>
 
 	<person>
-		<name>Liam Turish</name>
-		<address>11 Wymering Road, North End, Portsmouth PO2 7HX</address>
-		<phone>02392694279</phone>
-		<phone>07943833708</phone>
-		<role name="Secretary" club="Portsmouth Post Office">
-			<email id="postoffice.secretary" />
+		<name>Mike Townson</name>
+		<address>46 Romsey Avenue, Fareham PO16 9TA</address>
+		<phone>07753444057</phone>
+		<role name="Secretary" club="Fareham &amp; Crofton">
+			<email id="fareham.secretary" />
 		</role>
-		<role name="Captain" club="Portsmouth Post Office" />
 	</person>
 
 	<person>
-		<name>Ben Walker</name>
-		<phone>07427454553</phone>
-		<role name="Under-13" club="Havant" />
+		<name>John Udy</name>
+		<phone>07917 597155</phone>
+		<role name="Under-16" club="Havant" />
 	</person>
 
 	<person>
 		<name>Nick Webb</name>
-		<address>21 Forsythia Close, Denvilles PO9 2FW</address>
+		<address>21 Forsythia Close, Denvilles, Havant PO9 2FW</address>
 		<phone>02392451979</phone>
 		<phone>07920485406</phone>
 		<role name="Secretary" club="Emsworth">
@@ -588,8 +715,13 @@
 
 	<person>
 		<name>Richard Webb</name>
-		<phone>07875782084</phone>
-		<role name="Under-16" club="Fareham &amp; Crofton" />
+		<phone>01329 280228</phone>
+	</person>
+
+	<person>
+		<name>Andy White</name>
+		<phone>01329 829264</phone>
+		<role name="Under-13" club="Fareham &amp; Crofton" />
 	</person>
 
 	<person>
@@ -600,17 +732,22 @@
 
 	<person>
 		<name>Dan Williamson</name>
-		<address>Unit 34, Portsmouth Enterprise Centre PO3 5QT</address>
-		<phone>01489482558</phone>
-		<phone>02392663333</phone>
+		<address>Unit 34, Portsmouth Enterprise Centre, Quartremaine Road, Portsmouth PO3 5QT</address>
+		<phone>01489278747</phone>
+		<phone>07776 300422</phone>
 		<role name="Secretary" club="Locks Heath">
 			<email id="locksheath.secretary" />
 		</role>
 	</person>
 
 	<person>
-		<name>Malcolm Wise</name>
-		<phone>07795011060</phone>
+		<name>Dean Wilson</name>
+		<phone>07837 303295</phone>
+	</person>
+
+	<person>
+		<name>Kevin Wingham</name>
+		<phone>07765 407545</phone>
 		<role name="Under-13" club="Hambledon" />
 	</person>
 
@@ -619,31 +756,17 @@
 		<address>24 Old Manor Way, Drayton, Portsmouth PO6 2NN</address>
 		<phone>02392363467</phone>
 		<phone>07557683286</phone>
-		<role name="Secretary" club="Bedhampton">
-			<email id="bedhampton.secretary" />
-		</role>
 	</person>
 
 	<person>
-		<name>Brian Woolley</name>
-		<address>Cover-Point, 2 Copse Close, Widley PO7 5JS</address>
-		<phone>02392381645</phone>
-		<phone>07812367771</phone>
-		<role name="Secretary" club="Purbrook">
-			<email id="purbrook.secretary" />
-		</role>
-	</person>
-	
-	<person>
-		<name>Gary Wylde</name>
-		<phone>07581188055</phone>
-		<role name="A team" club="Fareham &amp; Crofton" />
+		<name>Paul Woolf</name>
+		<phone>07968 819849</phone>
 	</person>
 
 	<person>
-		<name>Jeff Wylde</name>
-		<phone>01329665693</phone>
-		<role name="Under-13" club="Fareham &amp; Crofton" />
+		<name>Nicky Wyatt</name>
+		<phone>07771 691662</phone>
+		<role name="A team" club="Portsmouth" />
 	</person>
 
 </contacts>

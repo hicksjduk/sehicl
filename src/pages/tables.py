@@ -12,18 +12,24 @@ from operator import attrgetter
 from pages.pageLink import PageLink
 from utils.text import TextUtils
 from pages.archive import ArchiveUtils
+from pages.settings import Settings
 
 class LeagueTable(Page):
 
     def __init__(self, pageId, params={}):
         Page.__init__(self, pageId, params)
         self.report = None
+
+    def getAwardedPoints(self):
+        season = self.allParams.get("season", Settings.defaultSeason)
+        return (5, 5) if season > 15 else (3, 6)
         
     def getReport(self):
         if not self.report:
             rootElement = ElementTree.parse(self.allParams["xmlFile"])
             leagueId = self.allParams.get('league', None)
-            self.report = LeagueTableReportGenerator().getReport(rootElement, leagueId)
+            awardedBatPts, awardedBowlPts = self.getAwardedPoints()
+            self.report = LeagueTableReportGenerator(awardedBatPts, awardedBowlPts).getReport(rootElement, leagueId)
         return self.report
 
     def getTitle(self):
@@ -57,6 +63,7 @@ class LeagueTable(Page):
         return answer
     
     def getReportFooter(self):
+        awardedBatPts, awardedBowlPts = self.getAwardedPoints()
         html = """
         <p class="calctext noprint">
         <b>How the points are worked out:</b>
@@ -68,14 +75,14 @@ class LeagueTable(Page):
             Bowling points: 1 point per wicket taken. If the batting side has fewer than six players,
             and the missing player(s) would have been required to bat if present, a bowling bonus point is awarded
             for each missing player.<br>
-            In a game won by default, the winning team receives 3 batting points and
-            6 bowling points as well as 12 points for winning.
+            In a game won by default, the winning team receives {awardedBat} batting points and
+            {awardedBowl} bowling points as well as 12 points for winning.
         <br>
         Teams level on points are ranked by
         <b>run rate</b>, which is the total number of runs scored, divided by the total
         number of overs faced. For this purpose, an innings where the batting
         side is all out counts as lasting the full number of available overs, even if it is actually shorter.</p>
-        """
+        """.format(awardedBat=awardedBatPts, awardedBowl=awardedBowlPts)
         answer = "" if self.allParams.get("archive", "no") == "yes" else html
         return answer
     
@@ -119,11 +126,7 @@ class LeagueTable(Page):
         deductionReasons = []
         tableRows = self.getRows(table, deductionReasons)
         theDeductions = self.getDeductionInfoForTable(deductionReasons)
-        noteList = []
-        for n in table.notes:
-            note = "<p class=\"tablenotes\">{0}</p>".format(n)
-            noteList.append(note)
-        notes = string.join(noteList, "\n")
+        notes = "<p class=\"tablenotes\">\n{0}\n</p>".format(string.join(table.notes, "<br>\n")) if len(table.notes) > 0 else ""
         answer = html.format(heading=heading, status=statusMessage, rows=tableRows, deductions=theDeductions, click=clickMessage, notes=notes)
         return answer
     
@@ -136,7 +139,7 @@ class LeagueTable(Page):
         elif self.allParams.get("archive", "no") == "yes":
             answer = ""
         else:
-            if table.lastCompleteMatchDate == table.lastScheduledMatchDate:
+            if table.complete:
                 message = "Final table"
             else:
                 dateStr = DateFormatter.formatDate(table.lastCompleteMatchDate, True, True)
@@ -153,7 +156,7 @@ class LeagueTable(Page):
         rows = []
         position = 0
         linePos = []
-        if table.lastCompleteMatchDate is not None and table.lastCompleteMatchDate != table.lastScheduledMatchDate:
+        if not table.complete:
             if table.promoted != 0:
                 linePos.append(table.promoted)
             if table.relegated != 0:

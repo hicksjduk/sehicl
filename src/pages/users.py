@@ -38,9 +38,12 @@ class UserLogin(Page):
         if (self.allParams.get("displayed", None) == "true"):
             processingOutcome = self.processLoginData()
             if processingOutcome.valid:
-                self.allParams["session"] = processingOutcome.token
-                pageLink = PageLink(self.allParams["forward"], self) 
-                raise RedirectException(pageLink)
+                if processingOutcome.token is not None:
+                    self.allParams["session"] = processingOutcome.token
+                    pageLink = PageLink(self.allParams["forward"], self) 
+                    raise RedirectException(pageLink)
+                else:
+                    answer = self.getLoginPage(processingOutcome)
             else:
                 answer = self.getLoginPage(processingOutcome)
         else:
@@ -56,7 +59,12 @@ class UserLogin(Page):
             Please note that if you registered for a login during the 2012-13 season, that login
             no longer works and you must re-register.
         </p>
-        <p>If you have already registered, please fill in the fields below and press "Submit".</p>
+        <p>
+            If you have already registered, please fill in the fields below and press "Login".
+            If you cannot remember your password, fill in the e-mail address and press 
+            "Remind"; if the e-mail address you specify is that of a registered user, a password
+            reminder will be sent to that address.
+        </p>
         <form action="{submit.url}" method="post">
             <input type="hidden" name="displayed" value="true">
             <table>
@@ -71,7 +79,10 @@ class UserLogin(Page):
                     <td>{valid.passwordMessage}</td>
                 </tr>
             </table>
-            <p><input type="Submit" value="Submit"></p>
+            <p>
+                <input name="button" type="Submit" value="Login">
+                <input name="button" type="Submit" value="Remind">
+            </p>
         </form>
         """
         params = {}
@@ -88,17 +99,24 @@ class UserLogin(Page):
 
     def processLoginData(self):
         answer = LoginValidation()
+        buttonPressed = self.allParams.get("button", "") 
         answer.email = string.strip(self.allParams.get("email", ""))
         if answer.email == "":
             answer.valid = False
             answer.emailMessage = "Please specify your e-mail address."
-        answer.password = string.strip(self.allParams.get("password", ""))
-        if answer.password == "":
-            answer.valid = False
-            answer.passwordMessage = "Please specify your password."
+        if buttonPressed != "Remind":
+            answer.password = string.strip(self.allParams.get("password", ""))
+            if answer.password == "":
+                answer.valid = False
+                answer.passwordMessage = "Please specify your password."
         if answer.valid:
             try:
-                answer.token = self.userDb.login(answer.email, answer.password)
+                if buttonPressed == "Remind":
+                    self.userDb.remindOfPassword(answer.email)
+                    answer.token = None
+                    answer.emailMessage = "A password reminder has been sent to this address."
+                else:
+                    answer.token = self.userDb.login(answer.email, answer.password)
             except UserException as ex:
                 answer.valid = False
                 answer.emailMessage = ex.message

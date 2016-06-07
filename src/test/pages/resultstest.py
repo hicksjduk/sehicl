@@ -938,7 +938,7 @@ class Test(TestBase):
         
     def testGetContentForLeague(self):
         page = LeagueResults("")
-        page.allParams = {"xmlFile": "data/2012-13.xml", "league": "Division1"}
+        page.allParams = {"xmlFile": "testData/2012-13.xml", "league": "Division1"}
         result = page.getContent()
         self.assertNotEqual("", result)
 
@@ -1517,13 +1517,13 @@ class Test(TestBase):
         
     def testGetContentForDateNullDate(self):
         page = DateResults("")
-        page.allParams = {"xmlFile": "data/2012-13.xml"}
+        page.allParams = {"xmlFile": "testData/2012-13.xml"}
         result = page.getContent()
         self.assertNotEqual("", result)
 
     def testGetContentForDateNonNullDate(self):
         page = DateResults("")
-        page.allParams = {"xmlFile": "data/2012-13.xml", "date": "2012-12-23"}
+        page.allParams = {"xmlFile": "testData/2012-13.xml", "date": "2012-12-23"}
         result = page.getContent()
         self.assertNotEqual("", result)
 

@@ -63,6 +63,8 @@ class Navigator:
             <item pageId="recordsFairplay">Sporting and Efficiency</item>
         </item>
         <item id="archive" pageId="archive">
+            <item pageId="archive15">2014-15</item>
+            <item pageId="archive14">2013-14</item>
             <item pageId="archive13">2012-13</item>
             <item pageId="archive12">2011-12</item>
             <item pageId="archive11">2010-11</item>

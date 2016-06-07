@@ -41,7 +41,7 @@ class TeamFixtures(Page):
         {body}
         """
 
-        leagueFixLink = PageLink("leagueFixtures", self, {"league": report.leagueId})
+        leagueFixLink = PageLink("leagueFixtures", self, {"league": report.leagueId}, True)
         if len(report.matches) == 0:
             reportBody = "<p>The fixtures for the coming season have not yet been published.</p>"
         else:
@@ -67,7 +67,7 @@ class TeamFixtures(Page):
         </table>
         """
         
-        leagueResLink = PageLink("leagueResults", self, {"league": report.leagueId})
+        leagueResLink = PageLink("leagueResults", self, {"league": report.leagueId}, True)
         matchLines = [self.getMatchLine(match, report.teamId, leagueResLink) for match in report.getSortedMatches()]
         answer = html.format(matches=string.join(matchLines, "\n")) 
         return answer
@@ -86,7 +86,7 @@ class TeamFixtures(Page):
         mDate = DateFormatter.formatDate(match.datetime, False, False)
         mTime = DateFormatter.formatTime(match.datetime)
         mCourt = match.court
-        mOppFixLink = PageLink("teamFixtures", self, {"team": match.opponentId})
+        mOppFixLink = PageLink("teamFixtures", self, {"team": match.opponentId}, True)
         mOppName = match.opponentName
         mHomeAway = "H" if match.home else "A"
         mOppId = match.opponentId

@@ -24,6 +24,7 @@ class Test(TestBase):
         table = LeagueTableInReport()
         table.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         table.lastScheduledMatchDate = datetime.date(2013, 3, 3)
+        table.complete = True
         result = LeagueTable("").getStatusMessage(table)
         expectedResult = """
         <p class="statusMessage">Final table.</p>
@@ -332,6 +333,9 @@ class Test(TestBase):
             <td class="points number">0</td>
         </tr>
         <tr>
+            <td colspan="12" class="linebelow">&nbsp;</td>
+        </tr>
+        <tr>
             <td class="position number"></td>
             <td class="teamname ">
                 <a href="/cgi-bin/page.py?id=teamFixtures&team=t2">Team 2</a>
@@ -362,6 +366,9 @@ class Test(TestBase):
             <td class="dedpoints number"></td>
             <td class="dedkeys"></td>
             <td class="points number">0</td>
+        </tr>
+        <tr>
+            <td colspan="12" class="linebelow">&nbsp;</td>
         </tr>
         <tr>
             <td class="position number"></td>
@@ -814,6 +821,7 @@ class Test(TestBase):
         table.promoted, table.relegated = 1, 1
         table.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         table.lastScheduledMatchDate = datetime.date(2013, 3, 3)
+        table.complete = True
         deductionReasons = []
         result = LeagueTable("").getRows(table, deductionReasons)
         expectedResult = """
@@ -913,6 +921,7 @@ class Test(TestBase):
         table.promoted, table.relegated = 1, 1
         table.lastCompleteMatchDate = datetime.date(2013, 3, 3)
         table.lastScheduledMatchDate = datetime.date(2013, 3, 3)
+        table.complete = True
         table.notes = ["Hello", "Goodbye"]
         result = LeagueTable("").getLeagueTable(table)
         expectedResult = """
@@ -1009,8 +1018,10 @@ class Test(TestBase):
                 Late start - 4 points deducted.
             </li>
         </ul>
-        <p class="tablenotes">Hello</p>
-        <p class="tablenotes">Goodbye</p>
+        <p class="tablenotes">
+            Hello<br>
+            Goodbye
+        </p>
         </div>
         """
         self.assertMultiLineEqual(expectedResult, result)

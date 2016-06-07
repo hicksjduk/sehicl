@@ -409,10 +409,10 @@ class Test(TestBase):
             (tel: 01243 538800).
         </p>
         <p>
-            The main means of communication on league matters is by e-mail. For
+            The main means of communication on league matters is by e-mail. <b>For
             urgent contacts, however, it may be preferable to telephone; telephone
             numbers for committee members, club secretaries and team captains and
-            managers are given below.
+            managers are given below.</b>
         </p>
         <p>
             All e-mail contacts should be made using the e-mail addresses
@@ -441,10 +441,10 @@ class Test(TestBase):
             (tel: 01243 538800).
         </p>
         <p>
-            The main means of communication on league matters is by e-mail. For
+            The main means of communication on league matters is by e-mail. <b>For
             urgent contacts, however, it may be preferable to telephone; telephone
             numbers for committee members, club secretaries and team captains and
-            managers are given on the <a href="/cgi-bin/page.py?id=fullContacts">Full Contacts</a> page.
+            managers are given on the <a href="/cgi-bin/page.py?id=fullContacts">Full Contacts</a> page.</b>
         </p>
         <p>
             All e-mail contacts should be made using the e-mail addresses
@@ -741,6 +741,8 @@ class Test(TestBase):
         
     def testGetCommitteeContactsSomeRolesFilled(self):
         personList = []
+        personList.append(PersonData(name="Carol Cooper", \
+                                     roles=[RoleData(name="President", email="president")]))
         personList.append(PersonData(name="Richard Matthews", \
                                      roles=[RoleData(name="Chairman", email="chairman"), \
                                             RoleData(name="Secretary", club="Denmead", email="denmead.secretary")]))
@@ -753,7 +755,11 @@ class Test(TestBase):
             <tbody>
                 <tr>
                     <td class="role">President</td>
-                    <td>Currently vacant</td>
+                    <td><script language="javascript">
+            document.write(mailTo("president", "", "", "Carol Cooper"));
+        </script>
+        <noscript>Carol Cooper<i> (Javascript not enabled: cannot display mail link)</i>
+        </noscript></td>
                 </tr>
                 <tr>
                     <td class="role">Chairman</td>
@@ -943,11 +949,11 @@ class Test(TestBase):
         self.assertMultiLineEqual(expectedResult, result)
         
     def testGetContentPartialContacts(self):
-        rootElement = ElementTree.parse("data/contacts.xml")
+        rootElement = ElementTree.parse("testData/contacts.xml")
         PartialContacts("").getContent(rootElement);
 
     def testGetContentFullContacts(self):
-        rootElement = ElementTree.parse("data/contacts.xml")
+        rootElement = ElementTree.parse("testData/contacts.xml")
         FullContacts("").getContent(rootElement)
 
 if __name__ == "__main__":
